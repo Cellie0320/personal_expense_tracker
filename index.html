@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Expense Tracker Project Timeline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .timeline {
+            margin: 20px 0;
+        }
+        .week {
+            margin-bottom: 20px;
+        }
+        .day {
+            background-color: #f9f9f9;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .files {
+            margin: 10px 0 0 20px;
+        }
+        .tasks, .files ul, .learning-resources {
+            margin-left: 20px;
+        }
+        .learning-resources {
+            margin-top: 10px;
+        }
+        .learning-resources ul {
+            list-style-type: disc;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Personal Expense Tracker Project Timeline</h1>
+<p>This timeline outlines the tasks, learning phases, and project development steps for building a web-based personal expense tracker.</p>
+
+<div class="timeline">
+
+    <!-- Week 1 -->
+    <div class="week">
+        <h2>Week 1: December 13–19 (Planning, Learning Basics, and Setup)</h2>
+
+        <div class="day">
+            <h3>Day 1 (Dec 13): Setup and Learning PHP Basics</h3>
+            <div class="tasks">
+                <strong>Tasks:</strong>
+                <ul>
+                    <li>Set up UniServer, PHP, and MySQL environment.</li>
+                    <li>Familiarize with PHP syntax: variables, arrays, functions, and basic CRUD.</li>
+                    <li>Learn about <code>$_POST</code>, <code>$_GET</code>, and form processing.</li>
+                </ul>
+            </div>
+            <div class="files">
+                <strong>Files to Create:</strong>
+                <ul>
+                    <li><code>database/schema/init.sql</code>: Initial database schema.</li>
+                    <li><code>backend/config/database.php</code>: Database connection script.</li>
+                </ul>
+            </div>
+            <div class="learning-resources">
+                <strong>Learning Resources:</strong>
+                <ul>
+                    <li><a href="https://www.php.net/docs.php">PHP.net documentation</a></li>
+                    <li><a href="https://www.w3schools.com/php/">W3Schools PHP tutorials</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day">
+            <h3>Day 2 (Dec 14): Database Design and PHP Integration</h3>
+            <div class="tasks">
+                <strong>Tasks:</strong>
+                <ul>
+                    <li>Detailed MySQL database planning.</li>
+                    <li>Create tables for expenses and categories.</li>
+                    <li>Learn MySQL and PHP database integration.</li>
+                </ul>
+            </div>
+            <div class="files">
+                <strong>Files to Create:</strong>
+                <ul>
+                    <li><code>database/schema/expenses_table.sql</code></li>
+                    <li><code>backend/models/Expense.php</code></li>
+                    <li><code>backend/controllers/ExpenseController.php</code></li>
+                </ul>
+            </div>
+            <div class="learning-resources">
+                <strong>Learning Focus:</strong>
+                <ul>
+                    <li>MySQL table design</li>
+                    <li>PHP database connection methods</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day">
+            <h3>Day 3 (Dec 15): CSS Flexbox and Grid Fundamentals</h3>
+            <div class="tasks">
+                <strong>Tasks:</strong>
+                <ul>
+                    <li>Learn CSS Flexbox layout techniques.</li>
+                    <li>Practice creating responsive layouts without frameworks.</li>
+                    <li>Understand CSS Grid for complex layouts.</li>
+                </ul>
+            </div>
+            <div class="files">
+                <strong>Files to Create:</strong>
+                <ul>
+                    <li><code>frontend/assets/css/styles.css</code></li>
+                </ul>
+            </div>
+            <div class="learning-resources">
+                <strong>Learning Resources:</strong>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout">MDN Web Docs: CSS Flexbox</a></li>
+                    <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">CSS-Tricks Flexbox Guide</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day">
+            <h3>Day 4 (Dec 16): PHP Form Handling and Frontend Design</h3>
+            <div class="tasks">
+                <strong>Tasks:</strong>
+                <ul>
+                    <li>Implement expense input form using custom CSS.</li>
+                    <li>Create form validation in PHP.</li>
+                    <li>Design a responsive layout with Flexbox.</li>
+                </ul>
+            </div>
+            <div class="files">
+                <strong>Files to Create:</strong>
+                <ul>
+                    <li><code>frontend/public/index.php</code>: Main expense entry page.</li>
+                    <li><code>backend/services/ValidationService.php</code></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day">
+            <h3>Day 5 (Dec 17): AJAX and JavaScript Basics</h3>
+            <div class="tasks">
+                <strong>Tasks:</strong>
+                <ul>
+                    <li>Learn AJAX for dynamic form submissions.</li>
+                    <li>Implement client-side form validation.</li>
+                    <li>Create smooth user interactions without page reloads.</li>
+                </ul>
+            </div>
+            <div class="files">
+                <strong>Files to Create:</strong>
+                <ul>
+                    <li><code>frontend/assets/js/ajax.js</code></li>
+                    <li><code>frontend/assets/js/validation.js</code></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day">
+            <h3>Day 6 (Dec 18): Implementing CRUD Operations</h3>
+            <div class="tasks">
+                <strong>Tasks:</strong>
+                <ul>
+                    <li>Develop view expenses functionality.</li>
+                    <li>Create methods for listing, adding, and editing expenses.</li>
+                    <li>Enhance frontend display with Flexbox.</li>
+                </ul>
+            </div>
+            <div class="files">
+                <strong>Files to Create:</strong>
+                <ul>
+                    <li><code>backend/controllers/ExpenseController.php</code></li>
+                    <li><code>frontend/templates/expense-list.php</code></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day">
+            <h3>Day 7 (Dec 19): Refining CRUD and Error Handling</h3>
+            <div class="tasks">
+                <strong>Tasks:</strong>
+                <ul>
+                    <li>Implement edit and delete expense operations.</li>
+                    <li>Add error handling and user feedback.</li>
+                    <li>Improve overall application robustness.</li>
+                </ul>
+            </div>
+            <div class="files">
+                <strong>Files to Create:</strong>
+                <ul>
+                    <li><code>backend/controllers/EditExpenseController.php</code></li>
+                    <li><code>backend/controllers/DeleteExpenseController.php</code></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Week 2 -->
+    <div class="week">
+        <h2>Week 2: December 20–26 (Core Functionality Development)</h2>
+
+        <div class="day">
+            <h3>Day 8 (Dec 20): Chart.js Data Visualization</h3>
+            <div class="tasks">
+                <strong>Tasks:</strong>
+                <ul>
+                    <li>Learn Chart.js for expense visualization.</li>
+                    <li>Create initial charts showing spending patterns.</li>
+                </ul>
+            </div>
+            <div class="files">
+                <strong>Files to Create:</strong>
+                <ul>
+                    <li><code>frontend/assets/js/chart-config.js</code></li>
+                    <li>Update <code>backend/controllers/ExpenseController.php</code>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day">
+            <h3>Day 9 (Dec 21): Dynamic Chart Integration</h3>
+            <div class="tasks">
+                <strong>Tasks:</strong>
+                <ul>
+                    <li>Fetch real expense data for charts.</li>
+                    <li>Implement dynamic category and time-based visualizations.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day">
+            <h3>Day 10 (Dec 22): Data Export Functionality</h3>
+            <div class="tasks">
+                <strong>Tasks:</strong>
+                <ul>
+                    <li>Implement CSV and JSON export features.</li>
+                    <li>Create backend export methods.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day">
+            <h3>Day 11 (Dec 23): Advanced Form Validation</h3>
+            <div class="tasks">
+                <strong>Tasks:</strong>
+                <ul>
+                    <li>Implement comprehensive form validation.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day">
+            <h3>Day 12 (Dec 24): Comprehensive Testing</h3>
+            <div class="tasks">
+                <strong>Tasks:</strong>
+                <ul>
+                    <li>Thoroughly test all features.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+ <!-- Week 3 -->
+ <div class="week">
+    <h2>Week 3: December 27–31 (Enhancements, Final Features, and Debugging)</h2>
+
+    <div class="day">
+        <h3>Day 15 (Dec 27): Advanced Chart.js Integration</h3>
+        <div class="tasks">
+            <strong>Tasks:</strong>
+            <ul>
+                <li>Add advanced spending visualizations (e.g., monthly trends, pie charts for categories).</li>
+                <li>Fetch dynamic data from the database for visualizations.</li>
+            </ul>
+        </div>
+        <div class="files">
+            <strong>Files to Create/Update:</strong>
+            <ul>
+                <li><code>frontend/assets/js/chart-config.js</code></li>
+                <li>Update <code>backend/controllers/ExpenseController.php</code>.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="day">
+        <h3>Day 16 (Dec 28): Profile Management (Optional)</h3>
+        <div class="tasks">
+            <strong>Tasks:</strong>
+            <ul>
+                <li>Add a user profile page for updating email and password.</li>
+                <li>Validate profile updates both on the client and server sides.</li>
+            </ul>
+        </div>
+        <div class="files">
+            <strong>Files to Create/Update:</strong>
+            <ul>
+                <li><code>frontend/public/profile.php</code>: Profile management form.</li>
+                <li><code>backend/controllers/UserController.php</code>: Add methods for updating user data.</li>
+                <li><code>backend/models/User.php</code>: Add methods for database updates.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="day">
+        <h3>Day 17 (Dec 29): Finalizing Export Features</h3>
+        <div class="tasks">
+            <strong>Tasks:</strong>
+            <ul>
+                <li>Complete CSV and JSON export functionality.</li>
+                <li>Ensure the exported files contain relevant filters (e.g., date range, categories).</li>
+            </ul>
+        </div>
+        <div class="files">
+            <strong>Files to Create/Update:</strong>
+            <ul>
+                <li><code>backend/services/ExportService.php</code></li>
+                <li><code>backend/controllers/ExportController.php</code></li>
+                <li>Update <code>frontend/public/index.php</code> for export buttons.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="day">
+        <h3>Day 18 (Dec 30): Comprehensive Feature Testing</h3>
+        <div class="tasks">
+            <strong>Tasks:</strong>
+            <ul>
+                <li>Test all implemented features, including CRUD, charts, authentication, and export.</li>
+                <li>Debug any issues and fix edge cases.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="day">
+        <h3>Day 19 (Dec 31): Performance Optimization</h3>
+        <div class="tasks">
+            <strong>Tasks:</strong>
+            <ul>
+                <li>Optimize database queries for faster performance.</li>
+                <li>Minify CSS and JavaScript files for quicker load times.</li>
+                <li>Optimize Chart.js rendering for large datasets.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Week 4 -->
+<div class="week">
+    <h2>Week 4: January 1–5 (Final Testing, Deployment, and Submission)</h2>
+
+    <div class="day">
+        <h3>Day 20 (Jan 1): Deployment Setup</h3>
+        <div class="tasks">
+            <strong>Tasks:</strong>
+            <ul>
+                <li>Prepare the application for deployment.</li>
+                <li>Set up the project on a local server (UniServer) or a web hosting platform.</li>
+                <li>Test database connectivity on the deployment environment.</li>
+            </ul>
+        </div>
+        <div class="files">
+            <strong>Files to Update:</strong>
+            <ul>
+                <li><code>backend/config/database.php</code>: Update with deployment database credentials.</li>
+                <li><code>.htaccess</code>: Add for URL rewriting (if using Apache).</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="day">
+        <h3>Day 21 (Jan 2): Cross-Browser and Device Testing</h3>
+        <div class="tasks">
+            <strong>Tasks:</strong>
+            <ul>
+                <li>Test the application on different browsers (Chrome, Firefox, Edge, Safari).</li>
+                <li>Test the responsiveness of the application on various devices.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="day">
+        <h3>Day 22 (Jan 3): Final Code Review and Cleanup</h3>
+        <div class="tasks">
+            <strong>Tasks:</strong>
+            <ul>
+                <li>Review all code for readability and maintainability.</li>
+                <li>Add comments and remove unused files or code.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="day">
+        <h3>Day 23 (Jan 4): Documentation</h3>
+        <div class="tasks">
+            <strong>Tasks:</strong>
+            <ul>
+                <li>Write comprehensive documentation for the project.</li>
+                <li>Include setup instructions, features, and usage examples.</li>
+            </ul>
+        </div>
+        <div class="files">
+            <strong>Files to Create/Update:</strong>
+            <ul>
+                <li><code>README.md</code>: Add installation steps, project overview, and features.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="day">
+        <h3>Day 24 (Jan 5): Final Submission or Presentation</h3>
+        <div class="tasks">
+            <strong>Tasks:</strong>
+            <ul>
+                <li>Submit the project or prepare for presentation.</li>
+                <li>If presenting, prepare a live demo of the application.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>

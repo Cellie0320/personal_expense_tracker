@@ -1,0 +1,116 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(90deg, rgba(255,100,100,1) 0%, rgba(255,150,100,1) 100%); /* Lighter gradient background to imporve */
+}
+/*container css */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* h1 css */
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 36px; /* Increase font size */
+    font-weight: bold; /* Make the text bold */
+    text-align: center; /* Center the text */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle text shadow */
+    animation: fadeIn 2s ease-in-out; /* Add a fade-in animation */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* logo css */
+.logo {
+    margin-right: 20px;
+}
+
+.logo img {
+    max-width: 250px; /* Adjust the size of the logo as needed */
+    max-height: 250px; /* Adjust the size of the logo as needed */  
+}
+
+/*forms(index, register, login) css */
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px; 
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input:invalid {
+    border-color: red;
+}
+
+#emailMessage {
+    font-size: 12px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,94,0,1) 100%);
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(90deg, rgba(255,94,0,1) 0%, rgba(255,0,0,1) 100%);
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255,0,0,0.5);
+}

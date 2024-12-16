@@ -1,6 +1,6 @@
 /* General body styling */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -8,7 +8,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: linear-gradient(90deg, rgba(255,100,100,1) 0%, rgba(255,150,100,1) 100%);
+    background: linear-gradient(to bottom, #1c1c1c 30%, #b02a1c 60%, #e74c3c);
 }
 
 /* Container styling */
@@ -24,7 +24,7 @@ body {
 
 /* Header styling */
 h1 {
-    color: #333;
+    color: white;
     margin-bottom: 20px;
     font-size: 36px;
     font-weight: bold;
@@ -65,7 +65,7 @@ form {
     display: grid;
     grid-template-columns: 1fr;
     gap: 10px;
-    background: #fff;
+    background: transparent;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -75,6 +75,7 @@ form {
 label {
     display: block;
     margin-bottom: 5px;
+    color: white;
 }
 
 input {
@@ -98,7 +99,7 @@ input:invalid {
 button {
     width: 100%;
     padding: 15px;
-    background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,94,0,1) 100%);
+    background: black;
     border: none;
     border-radius: 25px;
     color: #fff;
@@ -109,139 +110,10 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(90deg, rgba(255,94,0,1) 0%, rgba(255,0,0,1) 100%);
+    background:darkred;
 }
 
 button:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(255,0,0,0.5);
-}
-
-/* Navbar styling */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #007bff;
-    color: white;
-    padding: 1rem 2rem;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    height: 60px; /* Set a fixed height */
-}
-
-.user-info {
-    font-size: 1rem;
-}
-
-/* Adjust the sidebar to fit the screen */
-.sidebar {
-    width: 250px;
-    background-color: #343a40;
-    color: white;
-    padding: 1rem;
-    height: calc(100vh - 60px); /* Fit the screen */
-    position: fixed;
-    top: 60px; /* Below navbar */
-    left: 0;
-    overflow-y: auto;
-}
-
-.sidebar nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar nav ul li {
-    margin: 15px 0;
-}
-
-.sidebar nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    padding: 0.5rem;
-    display: block;
-    border-radius: 5px;
-}
-
-.sidebar nav ul li a:hover {
-    background-color: #007bff;
-    color: white;
-}
-
-.main-content {
-    display: flex;
-    flex-direction: row; /* Arrange sections side by side */
-    margin-left: 250px; /* Adjust for sidebar width */
-    margin-top: 60px;   /* Move content below the navbar */
-    padding: 20px;
-    width: calc(100% - 250px); /* Adjust width */
-    box-sizing: border-box; /* Include padding in width calculation */
-}
-/* Chart section styling */
-.chart-section {
-    flex: 2; /* Takes up twice the space */
-    margin-right: 20px; /* Space between sections */
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.chart-container {
-    position: relative;
-    height: 400px; /* Ensure this height is set */
-  }
-
-/* Expense list section styling */
-.expense-list {
-    flex: 1; /* Takes up remaining space */
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.expense-list ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.expense-list li {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.expense-list li:last-child {
-    border-bottom: none;
-}
-
-.expense-list .action-btn {
-    width: 100%;
-    margin-top: 10px;
-}
-
-/* Adjust buttons to be stacked vertically */
-.expense-list button {
-    width: 100%;
-    margin-top: 10px;
-}
-
-/* Footer styling */
-.footer {
-    background-color: #f8f9fa;
-    text-align: center;
-    padding: 1rem 0;
-    font-size: 0.9rem;
-    color: #555;
-    border-top: 1px solid #ddd;
-    width: 100%;
-}
-
-.footer strong {
-    color: #007bff;
 }

@@ -1,0 +1,289 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to bottom, #1c1c1c 30%, #b02a1c 60%, #e74c3c);
+  color: white;
+  display: flex;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Header Styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-right: 20px; /* Adjusts spacing on the right side */
+}
+
+.welcome-message h1 {
+  font-size: 1.8rem;
+  color: white;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto; /* Pushes the profile section further to the right */
+  padding-right: 20px; /* Adds extra spacing to the right */
+}
+
+/* Font Awesome User Icon */
+.user-icon {
+  font-size: 50px; /* Icon size */
+  color: #ccc; /* Gray placeholder color */
+}
+
+/* Edit Profile Button */
+.edit-profile-btn {
+  background-color: black; /* Blue color for the button */
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-profile-btn:hover {
+  background-color: darkred; /* Darker blue on hover */
+}
+
+
+
+/* Sidebar Styling */
+.sidebar {
+  background: linear-gradient(to bottom, #1c1c1c 30%, #b02a1c 60%, #e74c3c);
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.sidebar .logo h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.sidebar nav ul {
+  list-style: none;
+}
+
+.sidebar nav ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.sidebar nav ul li a:hover {
+  background-color: #b02a1c;
+}
+
+/* Main Content Styling */
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+/* Content Area */
+.content-area {
+  display: flex;
+  gap: 20px;
+}
+
+/* Chart Section */
+.chart-section {
+  flex: 2;
+}
+
+.chart {
+  background: linear-gradient(to bottom, #2c3e50, #34495e);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Vertical Stats Section */
+.vertical-stats {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stat-card {
+  background: linear-gradient(145deg, #ffffff, #e8e8e8);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  color: #333;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card h3 {
+  font-size: 18px;
+}
+
+.stat-card p {
+  font-size: 22px;
+  font-weight: bold;
+  color: #b02a1c;
+}
+
+/* Expense Management Buttons */
+.expense-management {
+  margin-top: 20px;
+}
+
+.expense-management h3 {
+  margin-bottom: 10px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+/* Button Styles */
+.btn.view {
+  background-color: black; /* Blue for View Expenses */
+  color: white;
+}
+
+.btn.view:hover {
+  background-color: darkred; /* Darker blue on hover */
+}
+
+.btn.add {
+  background-color: black; /* Green for Add */
+  color: white;
+}
+
+.btn.add:hover {
+  background-color: darkred; /* Darker green on hover */
+}
+
+.btn.edit {
+  background-color: black; /* Orange for Edit */
+  color: white;
+}
+
+.btn.edit:hover {
+  background-color: darkred; /* Darker orange on hover */
+}
+
+.btn.delete {
+  background-color: black;  /* Red for Delete */
+  color: white;
+}
+
+.btn.delete:hover {
+  background-color: darkred; * Darker red on hover */
+}
+
+/* Logout Button in Sidebar */
+.logout-btn {
+  margin-top: auto; /* Push the button to the bottom of the sidebar */
+  padding: 10px 20px;
+  background-color: black; /* Red color for the logout button */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: darkred; /* Darker red for hover */
+}
+
+/* Logo Section in Sidebar */
+.logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo-img {
+  max-width: 100%;
+  height: auto; /* Maintains the aspect ratio */
+  max-height: 160px; /* Adjust this value based on your sidebar height */
+  object-fit: contain; /* Ensures the logo fits neatly inside the sidebar */
+}
+
+
+
+/* Footer */
+footer {
+  margin-top: auto;
+  background-color: #1c1c1c;
+  color: #888;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content-area {
+    flex-direction: column;
+  }
+
+  .vertical-stats {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .stat-card {
+    flex: 1 1 calc(50% - 10px);
+  }
+}
+/* Recent Expenses Table */
+.recent-expenses {
+  margin: 20px 0;
+  overflow-x: auto; /* Allows scrolling on small screens */
+}
+
+.recent-expenses h3 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+

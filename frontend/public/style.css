@@ -1,3 +1,4 @@
+/* General body styling */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -7,9 +8,10 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: linear-gradient(90deg, rgba(255,100,100,1) 0%, rgba(255,150,100,1) 100%); /* Lighter gradient background to imporve */
+    background: linear-gradient(90deg, rgba(255,100,100,1) 0%, rgba(255,150,100,1) 100%);
 }
-/*container css */
+
+/* Container styling */
 .container {
     display: flex;
     align-items: center;
@@ -20,15 +22,15 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* h1 css */
+/* Header styling */
 h1 {
     color: #333;
     margin-bottom: 20px;
-    font-size: 36px; /* Increase font size */
-    font-weight: bold; /* Make the text bold */
-    text-align: center; /* Center the text */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle text shadow */
-    animation: fadeIn 2s ease-in-out; /* Add a fade-in animation */
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 2s ease-in-out;
 }
 
 @keyframes fadeIn {
@@ -40,25 +42,25 @@ h1 {
     }
 }
 
-/* logo css */
+/* Logo styling */
 .logo {
-    margin-right: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .logo img {
-    max-width: 250px; /* Adjust the size of the logo as needed */
-    max-height: 250px; /* Adjust the size of the logo as needed */  
+    max-width: 250px;
+    max-height: 250px;
 }
 
-/*forms(index, register, login) css */
-
+/* Form container styling */
 .form-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-
+/* Form styling */
 form {
     display: grid;
     grid-template-columns: 1fr;
@@ -67,7 +69,7 @@ form {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px; 
+    width: 400px;
 }
 
 label {
@@ -113,4 +115,133 @@ button:hover {
 button:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(255,0,0,0.5);
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    color: white;
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    height: 60px; /* Set a fixed height */
+}
+
+.user-info {
+    font-size: 1rem;
+}
+
+/* Adjust the sidebar to fit the screen */
+.sidebar {
+    width: 250px;
+    background-color: #343a40;
+    color: white;
+    padding: 1rem;
+    height: calc(100vh - 60px); /* Fit the screen */
+    position: fixed;
+    top: 60px; /* Below navbar */
+    left: 0;
+    overflow-y: auto;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin: 15px 0;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem;
+    display: block;
+    border-radius: 5px;
+}
+
+.sidebar nav ul li a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: row; /* Arrange sections side by side */
+    margin-left: 250px; /* Adjust for sidebar width */
+    margin-top: 60px;   /* Move content below the navbar */
+    padding: 20px;
+    width: calc(100% - 250px); /* Adjust width */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+/* Chart section styling */
+.chart-section {
+    flex: 2; /* Takes up twice the space */
+    margin-right: 20px; /* Space between sections */
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container {
+    position: relative;
+    height: 400px; /* Ensure this height is set */
+  }
+
+/* Expense list section styling */
+.expense-list {
+    flex: 1; /* Takes up remaining space */
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.expense-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.expense-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.expense-list li:last-child {
+    border-bottom: none;
+}
+
+.expense-list .action-btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Adjust buttons to be stacked vertically */
+.expense-list button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Footer styling */
+.footer {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    color: #555;
+    border-top: 1px solid #ddd;
+    width: 100%;
+}
+
+.footer strong {
+    color: #007bff;
 }

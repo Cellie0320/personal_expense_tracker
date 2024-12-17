@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION['message'])) {
+    echo $_SESSION['message'];
+    unset($_SESSION['message']);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +32,6 @@
     <p class="login-link">Already a user? <a href="login.php">Login here</a></p>
 </form>
 
-    <script src="assets/js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

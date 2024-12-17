@@ -212,7 +212,7 @@ body {
 }
 
 .btn.delete:hover {
-  background-color: darkred; * Darker red on hover */
+  background-color: darkred; /* Darker red on hover */
 }
 
 /* Logout Button in Sidebar */
@@ -286,4 +286,19 @@ footer {
   font-size: 1.5rem;
 }
 
+.logout-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none; /* Remove underline */
+}
 
+.logout-btn:hover {
+  background-color: darkred;
+}

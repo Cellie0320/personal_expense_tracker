@@ -1,3 +1,12 @@
+<?php
+//starting the session to check if the user is authenticated
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php"); // Redirect to login if not logged in
+    exit();
+}
+$username = htmlspecialchars($_SESSION['username']); // Retrieve and sanitize the username
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,14 +31,16 @@
         <li><a href="#">Settings</a></li>
       </ul>
     </nav>
-    <button class="logout-btn">Logout</button>
+    <form action="logout.php" method="post" style="display:inline;">
+      <button type="submit" class="logout-btn">Logout</button>
+    </form>
   </div>
 
   <!-- Main Content -->
   <div class="main-content">
     <!-- Header -->
     <header class="header">
-      <h1>Welcome Back, John Doe!</h1>
+      <h1>Welcome Back <?php echo $username; ?></h1>
       <div class="user-profile">
       <i class="fa fa-user-circle user-icon"></i>
       <button class="edit-profile-btn">Edit Profile</button>

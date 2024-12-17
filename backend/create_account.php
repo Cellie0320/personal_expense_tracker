@@ -1,27 +1,45 @@
 <?php
 include 'DBConnection.php'; // Include your database connection file
 
+// Constants for error messages
+define('USER_EXISTS_ERROR', 'Error: Username or email already exists. <a href="../frontend/public/login.php">Login here</a>');
+define('ACCOUNT_CREATION_SUCCESS', 'Account created successfully. <a href="../frontend/public/login.php">Login here</a>');
+define('ACCOUNT_CREATION_ERROR', 'Error: Could not create account.');
+define('PREPARE_FAILED', 'Database query preparation failed.');
+
+// Check if the request method is POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the password
 
-    if (user_exists($username, $email, $pdo)) {
-        echo "Error: Username or email already exists.  <a href='../frontend/public/login.php'>Login here</a>";
+    // Check if the user already exists
+    if (userExists($username, $email, $pdo)) {
+        echo USER_EXISTS_ERROR;
     } else {
-        if (create_user($username, $email, $password, $pdo)) {
-            echo "Account created successfully. <a href='../frontend/public/login.php'>Login here</a>";
+        // Create the user
+        if (createUser($username, $email, $password, $pdo)) {
+            echo ACCOUNT_CREATION_SUCCESS;
         } else {
-            echo "Error: Could not create account.";
+            echo ACCOUNT_CREATION_ERROR;
         }
     }
 }
 
-function user_exists($username, $email, $pdo) {
+/**
+ * Check if a user with the given username or email already exists.
+ *
+ * @param string $username
+ * @param string $email
+ * @param PDO $pdo
+ * @return bool
+ */
+function userExists($username, $email, $pdo) {
     $query = "SELECT * FROM users WHERE username = :username OR email = :email";
     $stmt = $pdo->prepare($query);
     if ($stmt === false) {
-        die('Prepare failed: ' . htmlspecialchars($pdo->errorInfo()[2]));
+        error_log('Prepare failed: ' . htmlspecialchars($pdo->errorInfo()[2]));
+        die(PREPARE_FAILED);
     }
     $stmt->bindParam(':username', $username);
     $stmt->bindParam(':email', $email);
@@ -29,11 +47,21 @@ function user_exists($username, $email, $pdo) {
     return $stmt->fetch(PDO::FETCH_ASSOC) !== false;
 }
 
-function create_user($username, $email, $password, $pdo) {
+/**
+ * Create a new user with the given username, email, and password.
+ *
+ * @param string $username
+ * @param string $email
+ * @param string $password
+ * @param PDO $pdo
+ * @return bool
+ */
+function createUser($username, $email, $password, $pdo) {
     $query = "INSERT INTO users (username, email, password) VALUES (:username, :email, :password)";
     $stmt = $pdo->prepare($query);
     if ($stmt === false) {
-        die('Prepare failed: ' . htmlspecialchars($pdo->errorInfo()[2]));
+        error_log('Prepare failed: ' . htmlspecialchars($pdo->errorInfo()[2]));
+        die(PREPARE_FAILED);
     }
     $stmt->bindParam(':username', $username);
     $stmt->bindParam(':email', $email);

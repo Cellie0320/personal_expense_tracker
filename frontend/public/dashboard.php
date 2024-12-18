@@ -1,5 +1,5 @@
 <?php
-//starting the session to check if the user is authenticated
+// Starting the session to check if the user is authenticated
 session_start();
 if (!isset($_SESSION['username'])) {
     header("Location: login.php"); // Redirect to login if not logged in
@@ -19,15 +19,15 @@ $username = htmlspecialchars($_SESSION['username']); // Retrieve and sanitize th
 <body>
   <!-- Sidebar -->
   <div class="sidebar">
-  <div class="logo">
-  <img src="img/logo.png" alt="Expense Tracker Logo" class="logo-img">
-</div>
+    <div class="logo">
+      <img src="img/logo.png" alt="Expense Tracker Logo" class="logo-img">
+    </div>
 
     <nav>
       <ul>
         <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Expenses</a></li>
-        <li><a href="#">Reports</a></li>
+        <li><a href="profile.php">Profile</a></li>
+        <li><a href="contactform.php">Contact Us</a></li>
         <li><a href="#">Settings</a></li>
       </ul>
     </nav>
@@ -41,10 +41,6 @@ $username = htmlspecialchars($_SESSION['username']); // Retrieve and sanitize th
     <!-- Header -->
     <header class="header">
       <h1>Welcome Back <?php echo $username; ?></h1>
-      <div class="user-profile">
-      <i class="fa fa-user-circle user-icon"></i>
-      <button class="edit-profile-btn">Edit Profile</button>
-      </div>
     </header>
 
     <!-- Chart and Vertical Stats -->
@@ -82,6 +78,7 @@ $username = htmlspecialchars($_SESSION['username']); // Retrieve and sanitize th
         <button class="btn add">Add</button>
         <button class="btn edit">Edit</button>
         <button class="btn delete">Delete</button>
+        <button class="btn export">Export to CSV</button> <!-- New Export to CSV button -->
       </div>
     </div>
   </div>

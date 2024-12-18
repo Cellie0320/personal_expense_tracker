@@ -116,3 +116,8 @@ $(document).ready(function () {
         window.location.href = "/backend/expense.php?action=export";
     });
 });
+
+/*Contact form reset*/
+function resetForm() {
+    document.getElementById('contactForm').reset();
+}

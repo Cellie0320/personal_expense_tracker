@@ -1,3 +1,8 @@
+<?php
+session_start();
+$message = isset($_SESSION['message']) ? $_SESSION['message'] : '';
+unset($_SESSION['message']); // Clear the message after displaying it
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +13,7 @@
 </head>
 <body>
     <h1>Login to ZARWise</h1>
+    <?php if (!empty($message)) { echo "<p class='message'>$message</p>"; } ?>
     <form action="../../backend/authenticate.php" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>

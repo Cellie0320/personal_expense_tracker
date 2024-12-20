@@ -8,7 +8,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Constants for error messages
-define('INVALID_CREDENTIALS', 'Invalid username or password.');
+define('INVALID_CREDENTIALS', 'Invalid username or password. Please try again.');
 define('PASSWORD_VERIFICATION_FAILED', 'Password verification failed.');
 define('USER_NOT_FOUND', 'No user found with that username.');
 define('PREPARE_FAILED', 'Database query preparation failed.');

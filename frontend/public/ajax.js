@@ -1,6 +1,6 @@
 $(document).ready(function () {
     // Load Expenses
-    function loadExpenses() {
+    const loadExpenses = function () {
         $.ajax({
             url: "/backend/expense.php?action=view",
             method: "GET",
@@ -8,7 +8,7 @@ $(document).ready(function () {
                 $("#expense-list").html(data);
             }
         });
-    }
+    };
     loadExpenses();
 
     // Add Expense

@@ -24,6 +24,11 @@ body {
   padding-right: 20px; /* Adjusts spacing on the right side */
 }
 
+.header h1 {
+  font-size: 1.8rem;
+  color: white; /* Ensures the header text is white */
+}
+
 .welcome-message h1 {
   font-size: 1.8rem;
   color: white;
@@ -155,7 +160,8 @@ body {
 
 /* Expense Management Buttons */
 .expense-management {
-  margin-top: 20px;
+  margin-top: 10px; /* Reduced margin to move the section up */
+  margin-bottom: 40px; /* Add margin to move buttons up from the footer */
 }
 
 .expense-management h3 {
@@ -166,6 +172,7 @@ body {
   display: flex;
   gap: 10px;
 }
+
 /* General button styles */
 .btn {
   padding: 10px 16px;
@@ -181,6 +188,98 @@ body {
 /* Hover effects */
 .btn:hover {
   background-color: darkred; /* Dark red on hover */
+}
+
+/* Specific button styles */
+.btn.export, .btn.view, .btn.add, .btn.edit {
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 20%;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  margin-top: 1px;
+}
+
+.btn.export:hover, .btn.view:hover, .btn.add:hover, .btn.edit:hover {
+  background-color: darkred; /* Darker red on hover */
+}
+
+/* Close Button */
+.btn-btn-secondary {
+  padding: 10px 20px;
+  background-color: grey;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn-btn-secondary:hover {
+  background-color: darkred; /* Darker grey on hover */
+}
+
+/* Add Expense Button */
+.btn-primary.add {
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary.add:hover {
+  background-color: darkred; /* Darker red on hover */
+}
+
+/* Edit Expense Button */
+.btn-primary.edit {
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary.edit:hover {
+  background-color: darkred; /* Darker red on hover */
+}
+
+/* Delete Expense Button */
+.btn-danger.delete {
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn-danger.delete:hover {
+  background-color: darkred; /* Darker red on hover */
 }
 
 /* Logout Button in Sidebar */

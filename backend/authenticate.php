@@ -19,10 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
 
     // Authenticate the user
-    if (authenticateUser($username, $password, $pdo)) {
+    $user = authenticateUser($username, $password, $pdo);
+    if ($user) {
         // Regenerate session ID to prevent session fixation attacks
         session_regenerate_id(true);
-        $_SESSION['username'] = $username;
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['username'] = $user['username'];
         header("Location: ../frontend/public/dashboard.php"); // Redirect to the dashboard
         exit();
     } else {
@@ -38,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
  * @param string $username
  * @param string $password
  * @param PDO $pdo
- * @return bool
+ * @return array|false
  */
 function authenticateUser($username, $password, $pdo) {
     $query = "SELECT * FROM users WHERE username = :username";
@@ -53,7 +55,7 @@ function authenticateUser($username, $password, $pdo) {
 
     if ($user) {
         if (password_verify($password, $user['password'])) {
-            return true;
+            return $user; // Return the user data upon successful authentication
         } else {
             error_log(PASSWORD_VERIFICATION_FAILED);
         }

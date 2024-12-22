@@ -13,111 +13,25 @@ function validateEmail() {
         emailMessage.style.color = 'red';
     }
 }
-
-$(document).ready(function () {
-    /**
-     * Load expenses dynamically on page load.
-     */
-    function loadExpenses() {
-        $.ajax({
-            url: "/backend/expense.php?action=view",
-            method: "GET",
-            success: function (data) {
-                $("#expense-list").html(data); // Populate the expense list dynamically
-            },
-            error: function () {
-                alert("Failed to load expenses.");
-            }
-        });
-    }
-
-    // Initial load of expenses
-    loadExpenses();
-
-    /**
-     * Add a new expense.
-     */
-    $("#add-expense-btn").click(function () {
-        const category = prompt("Enter expense category:");
-        const amount = prompt("Enter expense amount:");
-        const description = prompt("Enter expense description:");
-
-        if (category && amount) {
-            $.ajax({
-                url: "/backend/expense.php?action=add",
-                method: "POST",
-                data: { category, amount, description },
-                success: function () {
-                    alert("Expense added successfully!");
-                    loadExpenses(); // Refresh the expense list
-                },
-                error: function () {
-                    alert("Failed to add expense.");
-                }
-            });
-        }
-    });
-
-    /**
-     * Edit an existing expense.
-     */
-    $(document).on("click", ".edit-btn", function () {
-        const expenseId = $(this).data("id");
-        const newCategory = prompt("Enter new category:");
-        const newAmount = prompt("Enter new amount:");
-        const newDescription = prompt("Enter new description:");
-
-        if (newCategory && newAmount) {
-            $.ajax({
-                url: "/backend/expense.php?action=edit",
-                method: "POST",
-                data: {
-                    id: expenseId,
-                    category: newCategory,
-                    amount: newAmount,
-                    description: newDescription
-                },
-                success: function () {
-                    alert("Expense updated successfully!");
-                    loadExpenses(); // Refresh the expense list
-                },
-                error: function () {
-                    alert("Failed to update expense.");
-                }
-            });
-        }
-    });
-
-    /**
-     * Delete an expense.
-     */
-    $(document).on("click", ".delete-btn", function () {
-        const expenseId = $(this).data("id");
-
-        if (confirm("Are you sure you want to delete this expense?")) {
-            $.ajax({
-                url: `/backend/expense.php?action=delete&id=${expenseId}`,
-                method: "POST",
-                success: function () {
-                    alert("Expense deleted successfully!");
-                    loadExpenses(); // Refresh the expense list
-                },
-                error: function () {
-                    alert("Failed to delete expense.");
-                }
-            });
-        }
-    });
-
-    /**
-     * Export expenses as CSV.
-     */
-    $("#export-csv-btn").click(function () {
-        window.location.href = "/backend/expense.php?action=export";
-    });
-});
-
 /*Contact form reset*/
 function resetForm() {
     document.getElementById('contactForm').reset();
 }
+
+document.getElementById('category_id').addEventListener('change', function() {
+    var otherCategoryGroup = document.getElementById('other-category-group');
+    if (this.value === 'other') {
+      otherCategoryGroup.style.display = 'block';
+    } else {
+      otherCategoryGroup.style.display = 'none';
+    }
+  });
+
+  document.getElementById('add-expense-form').addEventListener('submit', function(event) {
+    var categorySelect = document.getElementById('category_id');
+    var otherCategoryInput = document.getElementById('other_category');
+    if (categorySelect.value === 'other' && otherCategoryInput.value.trim() === '') {
+      event.preventDefault();
+      alert('Please specify the category.');
+    }
+  });

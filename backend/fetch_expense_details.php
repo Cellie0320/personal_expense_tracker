@@ -1,0 +1,25 @@
+<?php
+require_once 'DBConnection.php'; // Ensure $pdo connection is available
+
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    http_response_code(403);
+    echo json_encode(["error" => "Unauthorized: User not logged in."]);
+    exit;
+}
+
+$userId = $_SESSION['user_id'];
+$category = $_GET['category'] ?? ''; // Get the category from the query parameter
+
+// Fetch expense details for the specified category
+$query = "SELECT description, amount, date 
+          FROM expenses e
+          JOIN categories c ON e.category_id = c.id
+          WHERE e.user_id = :user_id AND c.name = :category";
+$stmt = $pdo->prepare($query);
+$stmt->execute(['user_id' => $userId, 'category' => $category]);
+$expenses = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+echo json_encode($expenses);
+?>

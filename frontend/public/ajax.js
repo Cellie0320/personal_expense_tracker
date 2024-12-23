@@ -9,14 +9,14 @@ $(document).ready(function () {
                 console.log("Expenses fetched successfully:", data); // Debugging statement
                 var expenseList = $('#expense-list');
                 expenseList.empty();
-                if (data.length === 0) {
+                if (data.expenses.length === 0) {
                     expenseList.html("<tr><td colspan='8' class='text-center'>No expenses found. Please add your expenses.</td></tr>");
                 } else {
-                    data.forEach(function (expense) {
+                    data.expenses.forEach(function (expense) {
                         var row = '<tr>' +
                             '<td>' + expense.id + '</td>' +
                             '<td>' + expense.user_id + '</td>' +
-                            '<td>' + expense.category_id + '</td>' +
+                            '<td>' + expense.category_name + '</td>' +
                             '<td>' + expense.amount + '</td>' +
                             '<td>' + expense.date + '</td>' +
                             '<td>' + expense.description + '</td>' +
@@ -29,6 +29,7 @@ $(document).ready(function () {
                         expenseList.append(row);
                     });
                 }
+                refreshChartData(); // Refresh chart data after loading expenses
             },
             error: function (xhr, status, error) {
                 console.error("Failed to load expenses:", error);
@@ -181,5 +182,16 @@ $(document).ready(function () {
     // Select row in the expense table
     $(document).on("click", "#expense-list tr", function () {
         $(this).addClass('selected').siblings().removeClass('selected');
+    });
+
+    // Refresh chart data when expenses are loaded or modified
+    function refreshChartData() {
+        const filter = $('#filter-select').val();
+        loadChartData(filter);
+    }
+
+    // Event listener for filter change
+    $('#filter-select').on('change', function () {
+        refreshChartData();
     });
 });

@@ -35,3 +35,50 @@ document.getElementById('category_id').addEventListener('change', function() {
       alert('Please specify the category.');
     }
   });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Fetch total expenses
+    function fetchTotalExpenses() {
+        $.ajax({
+            url: '../../backend/fetch_total_expenses.php',
+            method: 'GET',
+            success: function (response) {
+                const data = JSON.parse(response);
+                const totalExpenses = data.total_expenses;
+                $('#total-expenses').text(`R${totalExpenses}`);
+                calculateSavings(totalExpenses);
+            },
+            error: function (xhr, status, error) {
+                console.error('Failed to fetch total expenses:', error);
+            }
+        });
+    }
+
+    // Calculate savings
+    function calculateSavings(totalExpenses) {
+        const budget = parseFloat($('#budget-input').val()) || 0;
+        const savings = budget - totalExpenses;
+        $('#savings').text(`R${savings}`);
+    }
+
+    // Event listener for budget input change
+    $('#budget-input').on('input', function () {
+        const totalExpenses = parseFloat($('#total-expenses').text().replace('R', '')) || 0;
+        calculateSavings(totalExpenses);
+    });
+
+    // Event listener for OK button
+    $('#budget-ok').on('click', function () {
+        const totalExpenses = parseFloat($('#total-expenses').text().replace('R', '')) || 0;
+        calculateSavings(totalExpenses);
+    });
+
+    // Event listener for Cancel button
+    $('#budget-cancel').on('click', function () {
+        $('#budget-input').val('');
+        $('#savings').text('R0');
+    });
+
+    // Initial fetch of total expenses
+    fetchTotalExpenses();
+});

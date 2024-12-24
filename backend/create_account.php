@@ -1,9 +1,10 @@
 <?php
+session_start();
 include 'DBConnection.php'; // Include your database connection file
 
 // Constants for error messages
-define('USER_EXISTS_ERROR', 'Error: Username or email already exists. <a href="../frontend/public/login.php">Login here</a>');
-define('ACCOUNT_CREATION_SUCCESS', 'Account created successfully. <a href="../frontend/public/login.php">Login here</a>');
+define('USER_EXISTS_ERROR', 'Username or email already exists. <a href="login.php">Login here</a>');
+define('ACCOUNT_CREATION_SUCCESS', 'Account created successfully. <a href="login.php">Login here</a>');
 define('ACCOUNT_CREATION_ERROR', 'Error: Could not create account.');
 define('PREPARE_FAILED', 'Database query preparation failed.');
 
@@ -15,13 +16,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Check if the user already exists
     if (userExists($username, $email, $pdo)) {
-        echo USER_EXISTS_ERROR;
+        $_SESSION['message'] = USER_EXISTS_ERROR;
+        header("Location: ../frontend/public/register.php");
+        exit();
     } else {
         // Create the user
         if (createUser($username, $email, $password, $pdo)) {
-            echo ACCOUNT_CREATION_SUCCESS;
+            $_SESSION['message'] = ACCOUNT_CREATION_SUCCESS;
+            header("Location: ../frontend/public/login.php");
+            exit();
         } else {
-            echo ACCOUNT_CREATION_ERROR;
+            $_SESSION['message'] = ACCOUNT_CREATION_ERROR;
+            header("Location: ../frontend/public/register.php");
+            exit();
         }
     }
 }

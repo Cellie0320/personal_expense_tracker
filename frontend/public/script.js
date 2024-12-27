@@ -160,3 +160,9 @@ document.addEventListener('DOMContentLoaded', function () {
 function resetForm() {
     document.getElementById('contactForm').reset();
 }
+// Delete profile confirmation
+$(document).ready(function() {
+    $('#confirm-delete-profile').on('click', function() {
+        $('#delete-profile-form').submit();
+    });
+});

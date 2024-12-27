@@ -1,93 +1,122 @@
 /* General Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Body Styling */
-  body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(to bottom, #1c1c1c 30%, #b02a1c 60%, #e74c3c);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-  
-  /* Container for the form */
-  .container {
-    background-color:transparent;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* Center the heading */
-  .container h1 {
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-  }
-  
-  /* Form Styling */
-  form {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
-    width: 100%;
-  }
-  
-  label {
-    font-size: 1.1rem;
-    text-align: left;
-  }
-  
-  input[type="text"],
-  input[type="password"] {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    width: 100%;
-  }
-  
-  /* Update Profile Button Styling */
-  button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: white;
-    background-color: black; /* Black background color */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: darkred; /* Dark red on hover */
-  }
-  
-  a {
-    color: black;
-    text-decoration: none;
-    margin-top: 10px;
-    display: inline-block;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  .message {
-    margin-bottom: 15px;
-    font-size: 1rem;
-    color: black;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to bottom, #1c1c1c 30%, #b02a1c 60%, #e74c3c);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Container for the form */
+.container {
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Center the heading */
+.container h1 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: white; /* White heading */
+}
+
+/* Form Styling */
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  width: 100%;
+}
+
+label {
+  font-size: 1.1rem;
+  text-align: left;
+  color: white; /* White form labels */
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+/* Password Container Styling */
+.password-container {
+  position: relative;
+}
+
+.password-container input[type="password"] {
+  padding-right: 40px; /* Add padding to make space for the eye icon */
+}
+
+.password-container .fa-eye,
+.password-container .fa-eye-slash {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* Update Profile Button Styling */
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background-color: black; /* Black background color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: darkred; /* Dark red on hover */
+}
+
+/* Delete Button Styling */
+.delete-btn {
+  background-color: red; /* Red background color */
+}
+
+.delete-btn:hover {
+  background-color: darkred; /* Dark red on hover */
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.message {
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: black;
+}

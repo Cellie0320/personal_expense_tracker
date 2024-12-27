@@ -4,7 +4,6 @@ include 'DBConnection.php'; // Include your database connection file
 
 // Constants for error messages
 define('USER_EXISTS_ERROR', 'Username or email already exists. <a href="login.php">Login here</a>');
-define('ACCOUNT_CREATION_SUCCESS', 'Account created successfully. <a href="login.php">Login here</a>');
 define('ACCOUNT_CREATION_ERROR', 'Error: Could not create account.');
 define('PREPARE_FAILED', 'Database query preparation failed.');
 
@@ -22,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         // Create the user
         if (createUser($username, $email, $password, $pdo)) {
-            $_SESSION['message'] = ACCOUNT_CREATION_SUCCESS;
             header("Location: ../frontend/public/login.php");
             exit();
         } else {

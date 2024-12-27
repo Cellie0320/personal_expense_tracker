@@ -14,7 +14,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Handle form submission
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_profile'])) {
     $new_username = $_POST['username'];
     $new_password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the new password
 
@@ -42,6 +42,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
     <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="container">
@@ -51,10 +56,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <label for="username">New Username:</label>
             <input type="text" id="username" name="username" value="<?php echo $username; ?>" required>
             <label for="password">New Password:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Update Profile</button>
-            <a href="dashboard.php">Back to Dashboard</a>
+            <div class="password-container">
+                <input type="password" id="password" name="password" required>
+                <i class="fas fa-eye" id="togglePassword" onclick="togglePasswordVisibility('password')"></i>
+            </div>
+            <button type="submit" name="update_profile">Update Profile</button>
         </form>
+        <br>
+        <form id="delete-profile-form" action="../../backend/delete_profile.php" method="post">
+            <button type="button" class="delete-btn btn btn-danger" data-toggle="modal" data-target="#deleteProfileModal">Delete Profile</button>
+        </form>
+        <a href="dashboard.php">Back to Dashboard</a>
+    </div>
+
+    <!-- Delete Profile Modal -->
+    <div class="modal fade" id="deleteProfileModal" tabindex="-1" role="dialog" aria-labelledby="deleteProfileModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteProfileModalLabel">Confirm Delete</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete your profile? This action cannot be undone.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirm-delete-profile">Delete</button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

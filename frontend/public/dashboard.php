@@ -56,38 +56,38 @@ $currentYear = date("Y"); // Get the current year
       <!-- Chart Section -->
       <div class="chart-section">
         <div class="chart">
-          <h3 class="expenses-overview-title">Expenses Overview</h3>
+        <h3 class="expenses-overview-title">Expenses Overview</h3>
           <select id="filter-select" class="form-control mb-3">
             <option value="week">Week</option>
             <option value="month" selected>Month</option>
             <option value="year">Year</option>
           </select>
           <div class="chart-container">
-            <canvas id="expenseChart"></canvas>
+           <canvas id="expenseChart"></canvas>
           </div>
         </div>
       </div>
 
-      <!-- Vertical Stats -->
-      <div class="vertical-stats">
-        <div class="stat-card">
-          <h3>Total Expenses</h3>
-          <p id="total-expenses">R0</p>
-        </div>
-        <div class="stat-card">
-          <h3>Budget</h3>
-          <input type="number" id="budget-input" placeholder="Enter your budget" />
-          <div class="budget-buttons">
-            <button id="budget-ok" class="btn">OK</button>
-            <button id="budget-cancel" class="btn">Cancel</button>
-          </div>
-        </div>
-        <div class="stat-card">
-          <h3>Savings</h3>
-          <p id="savings">R0</p>
-        </div>
-      </div>
+<!-- Vertical Stats -->
+<div class="vertical-stats">
+  <div class="stat-card">
+    <h3>Total Expenses</h3>
+    <p id="total-expenses">R0</p>
+  </div>
+  <div class="stat-card">
+    <h3>Budget</h3>
+    <input type="number" id="budget-input" placeholder="Enter your budget" />
+    <div class="budget-buttons">
+      <button id="budget-ok" class="btn">OK</button>
+      <button id="budget-cancel" class="btn">Cancel</button>
     </div>
+  </div>
+  <div class="stat-card">
+    <h3>Savings</h3>
+    <p id="savings">R0</p>
+  </div>
+</div>
+</div>
 
     <!-- Buttons for Expense Management -->
     <div class="expense-management">
@@ -127,8 +127,8 @@ $currentYear = date("Y"); // Get the current year
             </table>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addExpenseModal">Add Expense</button>
+            <button type="button" class="btn-btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn-primary-add" data-toggle="modal" data-target="#addExpenseModal">Add Expense</button>
           </div>
         </div>
       </div>
@@ -175,7 +175,7 @@ $currentYear = date("Y"); // Get the current year
                 <label for="description">Description</label>
                 <textarea class="form-control" id="description" name="description" required></textarea>
               </div>
-              <button type="submit" class="btn btn-primary">Add Expense</button>
+              <button type="submit" class="btn-primary-add">Add Expense</button>
             </form>
           </div>
         </div>
@@ -252,52 +252,28 @@ $currentYear = date("Y"); // Get the current year
         </div>
       </div>
     </div>
-
-    <!-- Expense Details Modal -->
-    <div class="modal fade" id="expenseDetailsModal" tabindex="-1" role="dialog" aria-labelledby="expenseDetailsModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="expenseDetailsModalLabel">Expense Details</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <!-- Expense details will be dynamically loaded here -->
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
-        </div>
+<!-- Expense Details Modal -->
+<div class="modal fade" id="expenseDetailsModal" tabindex="-1" role="dialog" aria-labelledby="expenseDetailsModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="expenseDetailsModalLabel">Expense Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Expense details will be dynamically loaded here -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
-
-    <!-- Expense Added Modal -->
-    <div class="modal fade" id="expenseAddedModal" tabindex="-1" role="dialog" aria-labelledby="expenseAddedModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="expenseAddedModalLabel">Expense Added</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            Your expense has been added successfully.
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" onclick="location.reload();">Refresh Dashboard</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-      <p>&copy; <?php echo $currentYear; ?> ZARWISE. All rights reserved.</p>
-    </footer>
   </div>
+</div>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; <?php echo $currentYear; ?> ZARWISE. All rights reserved.</p>
+  </footer>
 </body>
 </html>

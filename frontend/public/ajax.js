@@ -137,8 +137,9 @@ $(document).ready(function () {
                 other_category: other_category
             },
             success: function () {
+                alert("Expense added successfully!");
                 $('#addExpenseModal').modal('hide');
-                $('#expenseAddedModal').modal('show'); // Show the expense added modal
+                loadExpenses();
             },
             error: function (xhr, status, error) {
                 console.error("Failed to add expense:", error);

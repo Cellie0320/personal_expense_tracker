@@ -58,18 +58,18 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color:transparent; /* Semi-transparent background */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Form styling */
 form {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 10px;
-    width: 100%;
+    gap: 5px; /* Reduced gap between form fields */
+    background: transparent;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
 }
 
 label {
@@ -113,9 +113,7 @@ input:invalid {
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    color: #666; /* Darker color */
-    font-size: 1.5rem; /* Bigger size */
-    margin-top: -3px;
+    color: black;
 }
 
 .remember-me-container {
@@ -130,16 +128,33 @@ input:invalid {
     height: 20px;
     accent-color: black;
 }
-
-.remember-me-container .forgot-password-link {
-    margin-left: 30px; /* Adjusted gap */
-    margin-top: -5px; /* Move up */
-    color: black; /* Dark black color */
-    text-decoration: none;
-    transition: color 0.3s ease;
+/* Forgot password link styling */
+.forgot-password-link {
+    margin-top: 10px;
+    color: white;
 }
 
-.remember-me-container .forgot-password-link:hover {
+.forgot-password-link a {
+    color: #e74c3c;
+    text-decoration: none;
+}
+
+.forgot-password-link a:hover {
+    text-decoration: underline;
+}
+
+/* Register link styling */
+.register-link, .login-link {
+    margin-top: 10px;
+    color: white;
+}
+
+.register-link a , .login-link a {
+    color: blue;
+    text-decoration: none;
+}
+
+.register-link a:hover, .login-link a:hover {
     text-decoration: underline;
 }
 
@@ -157,30 +172,28 @@ button {
 }
 
 button:hover {
-    background: darkred;
+    background:darkred;
 }
 
 button:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.5);
+    box-shadow: 0 0 0 3px rgba(255,0,0,0.5);
 }
 
-/* Register link styling */
-.register-link,.login-link {
+/* Forgot password link styling */
+.forgot-password-link {
     margin-top: 10px;
     color: white;
 }
 
-.register-link a, .login-link a {
-    color: black; /* Dark black color */
+.forgot-password-link a {
+    color: blue;
     text-decoration: none;
 }
 
-
-.register-link a:hover, .login-link a:hover {
+.forgot-password-link a:hover {
     text-decoration: underline;
 }
-
 
 /* Error message styling */
 .error-message {

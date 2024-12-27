@@ -130,12 +130,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Calculate savings
     function calculateSavings(totalExpenses) {
         const budget = parseFloat($('#budget-input').val()) || 0;
-        const savings = Math.max(budget, totalExpenses) - Math.min(budget, totalExpenses);
+        const savings = budget - totalExpenses;
         $('#savings').text(`R${savings}`);
-        if (budget < totalExpenses) {
-            alert('Warning: Your budget is less than your total expenses.');
-        }
-        refreshChartData(); // Refresh chart data after calculating savings
     }
 
     // Event listener for budget input change
@@ -160,6 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
     fetchTotalExpenses();
 });
 
+/*contact form reset*/
 function resetForm() {
     document.getElementById('contactForm').reset();
 }

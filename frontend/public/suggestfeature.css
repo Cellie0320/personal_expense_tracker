@@ -1,0 +1,109 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom, #1c1c1c 30%, #b02a1c 60%, #e74c3c);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container for the form */
+.container {
+    background-color: transparent; /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 200px; /* Make the form container smaller in width */
+    text-align: center;
+}
+
+/* Center the heading */
+.container h1 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: white; /* Ensure the heading text is white */
+}
+
+/* Form Styling */
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px; /* Reduce gap between form elements */
+    width: 100%;
+}
+
+label {
+    font-size: 1.1rem;
+    text-align: left;
+    color: white; /* Ensure label text is white */
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    padding: 8px; /* Reduce padding to make form elements smaller */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Submit Button Styling */
+button {
+    padding: 8px 16px; /* Reduce padding to make button smaller */
+    font-size: 1rem;
+    color: white;
+    background-color: black; /* Black background color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: darkred; /* Dark red on hover */
+}
+
+a {
+    color: white; /* Use white text for links */
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.message {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: white; /* Ensure message text is white */
+}
+
+/* Link Styling */
+a.back-link {
+    color: black; /* Use black text for the back link */
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+a.back-link:hover {
+    text-decoration: underline;
+}

@@ -31,14 +31,13 @@ $currentYear = date("Y"); // Get the current year
       <img src="img/logo.png" alt="Expense Tracker Logo" class="logo-img">
     </div>
 
-    <nav>
-      <ul>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="profile.php">Profile</a></li>
-        <li><a href="contactform.php">Contact Us</a></li>
-        <li><a href="#">Settings</a></li>
-      </ul>
-    </nav>
+<nav>
+  <ul>
+    <li><a href="profile.php">Profile</a></li>
+    <li><a href="contactform.php">Contact Us</a></li>
+    <li><a href="suggestfeature.php">Suggest a Feature</a></li>
+  </ul>
+</nav>
     <form action="logout.php" method="post" style="display:inline;">
       <button type="submit" class="logout-btn">Logout</button>
     </form>
@@ -78,8 +77,8 @@ $currentYear = date("Y"); // Get the current year
     <h3>Budget</h3>
     <input type="number" id="budget-input" placeholder="Enter your budget" />
     <div class="budget-buttons">
-      <button id="budget-ok" class="btn">OK</button>
-      <button id="budget-cancel" class="btn">Cancel</button>
+      <!--<button id="budget-ok" class="btn">OK</button>-->
+     <!-- <button id="budget-cancel" class="btn">Cancel</button> -->
     </div>
   </div>
   <div class="stat-card">
@@ -97,42 +96,44 @@ $currentYear = date("Y"); // Get the current year
       </div>
     </div>
 
-    <!-- Expense Modal -->
-    <div class="modal fade" id="expenseModal" tabindex="-1" role="dialog" aria-labelledby="expenseModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="expenseModalLabel">Manage Expenses</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <table id="expense-table" class="table table-striped">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>User ID</th>
-                  <th>Category ID</th>
-                  <th>Amount</th>
-                  <th>Date</th>
-                  <th>Description</th>
-                  <th>Created At</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody id="expense-list">
-                <!-- Expenses will be dynamically loaded here -->
-              </tbody>
-            </table>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn-btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn-primary-add" data-toggle="modal" data-target="#addExpenseModal">Add Expense</button>
-          </div>
+   <!-- Expense Modal -->
+<div class="modal fade" id="expenseModal" tabindex="-1" role="dialog" aria-labelledby="expenseModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="expenseModalLabel">Manage Expenses</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="table-container">
+          <table id="expense-table" class="table table-striped">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>User ID</th>
+                <th>Category ID</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Created At</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="expense-list">
+              <!-- Expenses will be dynamically loaded here -->
+            </tbody>
+          </table>
         </div>
       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn-primary-add" data-toggle="modal" data-target="#addExpenseModal">Add Expense</button>
+      </div>
     </div>
+  </div>
+</div>
 
     <!-- Add Expense Modal -->
     <div class="modal fade" id="addExpenseModal" tabindex="-1" role="dialog" aria-labelledby="addExpenseModalLabel" aria-hidden="true">

@@ -34,14 +34,6 @@ body {
   color: white;
 }
 
-.user-profile {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-left: auto; /* Pushes the profile section further to the right */
-  padding-right: 20px; /* Adds extra spacing to the right */
-}
-
 /* Sidebar Styling */
 .sidebar {
   background: linear-gradient(to bottom, #1c1c1c 0%, #b02a1c 50%, #e74c3c 100%);
@@ -119,7 +111,7 @@ body {
 
 /* Vertical Stats */
 .vertical-stats {
-  margin-top: 20px; /* Adjust the value as needed to move the section down */
+  margin-top: 45px; /* Adjust the value as needed to move the section down */
 }
 
 /* Optional: Additional styling for stat cards */
@@ -343,20 +335,24 @@ body {
 footer {
   margin-top: auto;
   background-color: transparent;
-  color: #888;
+  color: white;
   text-align: center;
-  padding: 5px;
-  height: 30px; /* Adjust the height to make the footer smaller */
+  padding: 10px; /* Increase padding for more space inside the footer */
+  height: 150px; /* Increase the height to make the footer bigger */
+  width: 100%; /* Ensure the footer spans the entire width */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow */
 }
-
-/* Recent Expenses Table */
-.recent-expenses {
-  margin: 20px 0;
-  overflow-x: auto; /* Allows scrolling on small screens */
+/* Table Container for Scrollable Table */
+.table-container {
+  max-height: 400px; /* Set the maximum height for the table container */
+  overflow-y: auto; /* Enable vertical scrolling */
+  margin-bottom: 20px; /* Optional: Add some space below the table */
 }
 
-.recent-expenses h3 {
-  margin-bottom: 10px;
-  font-size: 1.5rem;
+/* Ensure the table header stays fixed while scrolling */
+.table-container thead th {
+  position: sticky;
+  top: 0;
+  background-color: #fff; /* Set the background color for the header */
+  z-index: 1; /* Ensure the header stays above the table rows */
 }

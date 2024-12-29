@@ -17,9 +17,12 @@ $currentYear = date("Y"); // Get the current year
   <link rel="stylesheet" href="dashboard.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
   <script src="chart.js"></script>
   <script src="ajax.js"></script>
   <script src="script.js"></script>
@@ -31,13 +34,13 @@ $currentYear = date("Y"); // Get the current year
       <img src="img/logo.png" alt="Expense Tracker Logo" class="logo-img">
     </div>
 
-<nav>
-  <ul>
-    <li><a href="profile.php">Profile</a></li>
-    <li><a href="contactform.php">Contact Us</a></li>
-    <li><a href="suggestfeature.php">Suggest a Feature</a></li>
-  </ul>
-</nav>
+    <nav>
+      <ul>
+        <li><a href="profile.php">Profile</a></li>
+        <li><a href="contactform.php">Contact Us</a></li>
+        <li><a href="suggestfeature.php">Suggest a Feature</a></li>
+      </ul>
+    </nav>
     <form action="logout.php" method="post" style="display:inline;">
       <button type="submit" class="logout-btn">Logout</button>
     </form>
@@ -55,38 +58,38 @@ $currentYear = date("Y"); // Get the current year
       <!-- Chart Section -->
       <div class="chart-section">
         <div class="chart">
-        <h3 class="expenses-overview-title">Expenses Overview</h3>
+          <h3 class="expenses-overview-title">Expenses Overview</h3>
           <select id="filter-select" class="form-control mb-3">
             <option value="week">Week</option>
             <option value="month" selected>Month</option>
             <option value="year">Year</option>
           </select>
           <div class="chart-container">
-           <canvas id="expenseChart"></canvas>
+            <canvas id="expenseChart"></canvas>
           </div>
         </div>
       </div>
 
-<!-- Vertical Stats -->
-<div class="vertical-stats">
-  <div class="stat-card">
-    <h3>Total Expenses</h3>
-    <p id="total-expenses">R0</p>
-  </div>
-  <div class="stat-card">
-    <h3>Budget</h3>
-    <input type="number" id="budget-input" placeholder="Enter your budget" />
-    <div class="budget-buttons">
-      <!--<button id="budget-ok" class="btn">OK</button>-->
-     <!-- <button id="budget-cancel" class="btn">Cancel</button> -->
+      <!-- Vertical Stats -->
+      <div class="vertical-stats">
+        <div class="stat-card">
+          <h3>Total Expenses</h3>
+          <p id="total-expenses">R0</p>
+        </div>
+        <div class="stat-card">
+          <h3>Budget</h3>
+          <input type="number" id="budget-input" placeholder="Enter your budget" />
+          <div class="budget-buttons">
+            <!--<button id="budget-ok" class="btn">OK</button>-->
+            <!--<button id="budget-cancel" class="btn">Cancel</button>-->
+          </div>
+        </div>
+        <div class="stat-card">
+          <h3>Savings</h3>
+          <p id="savings">R0</p>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="stat-card">
-    <h3>Savings</h3>
-    <p id="savings">R0</p>
-  </div>
-</div>
-</div>
 
     <!-- Buttons for Expense Management -->
     <div class="expense-management">
@@ -96,7 +99,7 @@ $currentYear = date("Y"); // Get the current year
       </div>
     </div>
 
-   <!-- Expense Modal -->
+ <!-- Table Modal -->
 <div class="modal fade" id="expenseModal" tabindex="-1" role="dialog" aria-labelledby="expenseModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -108,12 +111,13 @@ $currentYear = date("Y"); // Get the current year
       </div>
       <div class="modal-body">
         <div class="table-container">
+          <!-- Removed filter-container block -->
           <table id="expense-table" class="table table-striped">
             <thead>
               <tr>
                 <th>ID</th>
                 <th>User ID</th>
-                <th>Category ID</th>
+                <th>Category</th>
                 <th>Amount</th>
                 <th>Date</th>
                 <th>Description</th>
@@ -128,7 +132,7 @@ $currentYear = date("Y"); // Get the current year
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn-btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn-primary-add" data-toggle="modal" data-target="#addExpenseModal">Add Expense</button>
       </div>
     </div>
@@ -157,12 +161,7 @@ $currentYear = date("Y"); // Get the current year
                   <option value="5">Utilities</option>
                   <option value="6">Clothing</option>
                   <option value="7">Healthcare</option>
-                  <option value="other">Other (Please Specify)</option>
                 </select>
-              </div>
-              <div class="form-group" id="other-category-group" style="display: none;">
-                <label for="other_category">Please Specify</label>
-                <input type="text" class="form-control" id="other_category" name="other_category">
               </div>
               <div class="form-group">
                 <label for="amount">Amount</label>
@@ -206,12 +205,7 @@ $currentYear = date("Y"); // Get the current year
                   <option value="5">Utilities</option>
                   <option value="6">Clothing</option>
                   <option value="7">Healthcare</option>
-                  <option value="other">Other (Please Specify)</option>
                 </select>
-              </div>
-              <div class="form-group" id="edit-other-category-group" style="display: none;">
-                <label for="edit_other_category">Please Specify</label>
-                <input type="text" class="form-control" id="edit_other_category" name="other_category">
               </div>
               <div class="form-group">
                 <label for="edit_amount">Amount</label>
@@ -225,7 +219,7 @@ $currentYear = date("Y"); // Get the current year
                 <label for="edit_description">Description</label>
                 <textarea class="form-control" id="edit_description" name="description" required></textarea>
               </div>
-              <button type="submit" class="btn btn-primary">Save Changes</button>
+              <button type="submit" class="btn-primary-add">Save Changes</button>
             </form>
           </div>
         </div>
@@ -237,41 +231,57 @@ $currentYear = date("Y"); // Get the current year
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="deleteExpenseModalLabel">Delete Expense</h5>
+            <h5 class="modal-title" id="deleteExpenseModalLabel">Confirm Delete</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <p>Are you sure you want to delete this expense?</p>
-            <input type="hidden" id="delete_expense_id">
+            Are you sure you want to delete this expense?
+            <input type="hidden" id="delete_expense_id" name="id">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-danger" id="confirm-delete-expense">Delete</button>
+            <button type="button" id="confirm-delete-expense" class="btn btn-danger">Delete</button>
           </div>
         </div>
       </div>
     </div>
-<!-- Expense Details Modal -->
-<div class="modal fade" id="expenseDetailsModal" tabindex="-1" role="dialog" aria-labelledby="expenseDetailsModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="expenseDetailsModalLabel">Expense Details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <!-- Expense details will be dynamically loaded here -->
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
+
+<!-- Toast Notification -->
+<div aria-live="polite" aria-atomic="true" style="position: fixed; top: 20px; right: 20px; min-width: 250px; z-index: 1060;">
+  <div id="feedbackToast" class="toast" data-delay="3000">
+    <div class="toast-header">
+      <strong class="mr-auto">Notification</strong>
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="toast-body" id="toast-body">
+      <!-- Feedback message will be injected here -->
     </div>
   </div>
 </div>
+    <!-- Expense Details Modal for viewing expense in the chart when clicking on a specific data bar -->
+    <div class="modal fade" id="expenseDetailsModal" tabindex="-1" role="dialog" aria-labelledby="expenseDetailsModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="expenseDetailsModalLabel">Expense Details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Expense details will be dynamically loaded here -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   <!-- Footer -->
   <footer>
     <p>&copy; <?php echo $currentYear; ?> ZARWISE. All rights reserved.</p>

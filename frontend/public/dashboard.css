@@ -356,3 +356,23 @@ footer {
   background-color: #fff; /* Set the background color for the header */
   z-index: 1; /* Ensure the header stays above the table rows */
 }
+
+/* Toast Styles */
+#feedbackToast {
+  z-index: 1060; /* Ensures the Toast appears above the Modal */
+}
+.toast {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.toast.show {
+  opacity: 1;
+}
+.toast-body.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+.toast-body.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}

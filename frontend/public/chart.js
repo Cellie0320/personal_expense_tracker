@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const ctx = document.getElementById('expenseChart').getContext('2d');
-    const expenseChart = new Chart(ctx, {
+    window.expenseChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: [], // Dynamically loaded categories

@@ -1,98 +1,131 @@
-$(document).ready(function () {
-    // Load Expenses
-    const loadExpenses = function () {
+// Function to show feedback messages using Toasts
+function showFeedbackToast(message, alertClass) {
+    const toastBody = $('#toast-body');
+
+    // Set the message and alert class
+    toastBody.text(message)
+             .removeClass('alert-success alert-danger')
+             .addClass(alertClass);
+
+    // Show the toast
+    $('#feedbackToast').toast('show');
+}
+
+// Function to show feedback messages after updating an expense
+function showUpdateFeedbackMessage(message, alertClass) {
+    showFeedbackToast(message, alertClass);
+}
+
+// Function to show feedback messages after adding an expense
+function showAddFeedbackMessage(message, alertClass) {
+    showFeedbackToast(message, alertClass);
+}
+
+// Function to show feedback messages after deleting an expense
+function showDeleteFeedbackMessage(message, alertClass) {
+    showFeedbackToast(message, alertClass);
+}
+
+$(document).ready(function() {
+    let expenseTable;
+
+    /**
+     * Initializes the DataTable for the expense table.
+     * Called once when the document is ready.
+     */
+    function initializeDataTable() {
+        expenseTable = $('#expense-table').DataTable({
+            pageLength: 10,
+            lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+            order: [[4, 'desc']], // Order by date column descending
+            responsive: true
+        });
+    }
+
+    /**
+     * Loads all expenses from the backend and populates the expense table.
+     */
+    function loadExpenses() {
         $.ajax({
-            url: "../../backend/fetch_expenses.php",
-            method: "GET",
+            url: '../../backend/get_expenses.php',
+            method: 'GET',
             dataType: 'json',
-            success: function (data) {
-                console.log("Expenses fetched successfully:", data); // Debugging statement
-                var expenseList = $('#expense-list');
-                expenseList.empty();
-                if (data.expenses.length === 0) {
-                    expenseList.html("<tr><td colspan='8' class='text-center'>No expenses found. Please add your expenses.</td></tr>");
-                } else {
-                    data.expenses.forEach(function (expense) {
-                        var row = '<tr>' +
-                            '<td>' + expense.id + '</td>' +
-                            '<td>' + expense.user_id + '</td>' +
-                            '<td>' + expense.category_name + '</td>' +
-                            '<td>' + expense.amount + '</td>' +
-                            '<td>' + expense.date + '</td>' +
-                            '<td>' + expense.description + '</td>' +
-                            '<td>' + expense.created_at + '</td>' +
-                            '<td>' +
-                            '<button class="btn btn-primary edit-btn" data-id="' + expense.id + '">Edit</button> ' +
-                            '<button class="btn btn-danger delete-btn" data-id="' + expense.id + '">Delete</button>' +
-                            '</td>' +
-                            '</tr>';
-                        expenseList.append(row);
+            success: function(response) {
+                if (response.success && response.expenses) {
+                    const expenseTableInstance = $('#expense-table').DataTable();
+
+                    expenseTableInstance.clear(); // Clear existing expenses
+
+                    // Iterate through each expense and add to the table
+                    response.expenses.forEach(function(expense) {
+                        expenseTableInstance.row.add([
+                            expense.id,
+                            expense.user_id,
+                            expense.category_name || 'N/A',
+                            `R${parseFloat(expense.amount).toFixed(2)}`,
+                            expense.date,
+                            expense.description,
+                            expense.created_at,
+                            `<button class="btn btn-sm btn-primary edit-btn" data-id="${expense.id}">Edit</button>
+                             <button class="btn btn-sm btn-danger delete-btn" data-id="${expense.id}">Delete</button>`
+                        ]);
                     });
+
+                    expenseTableInstance.draw(); // Redraw the DataTable to reflect changes
                 }
-                refreshChartData(); // Refresh chart data after loading expenses
             },
-            error: function (xhr, status, error) {
-                console.error("Failed to load expenses:", error);
-                $("#expense-list").html("<tr><td colspan='8' class='text-center text-danger'>Failed to load expenses. Please try again later or manually add them</td></tr>");
+            error: function(xhr, status, error) {
+                console.error('Error loading expenses:', error);
+                $('#expense-list').html('<tr><td colspan="8" class="text-center">Error loading expenses</td></tr>');
             }
         });
-    };
+    }
 
-    // Load expenses when the modal is opened
-    $('#expenseModal').on('show.bs.modal', function () {
-        loadExpenses();
-    });
-
-    // Initial load of expenses
-    loadExpenses();
-
-    // Edit Expense
+    /**
+     * Handles the click event on the Edit button.
+     * Fetches the specific expense details and populates the edit form.
+     */
     $(document).on("click", ".edit-btn", function () {
-        const id = $(this).data("id");
-
-        // Fetch the expense details
+        const id = $(this).data("id"); // Get the expense ID from the data attribute
         $.ajax({
-            url: "../../backend/get_expense.php",
+            url: "../../backend/get_expenses.php", // Endpoint to get expense details
             method: "GET",
-            data: { id: id },
+            data: { id: id }, // Send the expense ID as a parameter
             dataType: 'json',
-            success: function (expense) {
-                // Populate the edit form with the expense details
-                $('#edit_expense_id').val(expense.id);
-                $('#edit_category_id').val(expense.category_id);
-                $('#edit_amount').val(expense.amount);
-                $('#edit_date').val(expense.date);
-                $('#edit_description').val(expense.description);
-
-                // Show/hide the "Other" category input
-                if (expense.category_id === 'other') {
-                    $('#edit-other-category-group').show();
-                    $('#edit_other_category').val(expense.other_category);
+            success: function (response) {
+                if (response.success && response.expenses && response.expenses.length > 0) {
+                    const expense = response.expenses[0];
+                    $('#edit_expense_id').val(expense.id);
+                    $('#edit_category_id').val(expense.category_id);
+                    $('#edit_amount').val(parseFloat(expense.amount).toFixed(2));
+                    $('#edit_date').val(expense.date);
+                    $('#edit_description').val(expense.description);
+                    $('#editExpenseModal').modal('show'); // Show the edit modal
                 } else {
-                    $('#edit-other-category-group').hide();
+                    showUpdateFeedbackMessage("Failed to load expense details.", 'alert-danger');
                 }
-
-                // Show the modal
-                $('#editExpenseModal').modal('show');
             },
-            error: function (xhr, status, error) {
-                console.error("Failed to fetch expense details:", error);
-                alert("Failed to fetch expense details. Please try again.");
+            error: function () {
+                showUpdateFeedbackMessage("Failed to fetch expense details. Please try again.", 'alert-danger');
             }
         });
     });
 
-    // Save Changes
+    /**
+     * Handles the submission of the Edit Expense form.
+     * Sends the updated expense data to the backend for processing.
+     */
     $('#edit-expense-form').on('submit', function (e) {
-        e.preventDefault();
+        e.preventDefault(); // Prevent the default form submission
 
+        // Gather form data
         const id = $('#edit_expense_id').val();
         const category_id = $('#edit_category_id').val();
         const amount = $('#edit_amount').val();
         const date = $('#edit_date').val();
         const description = $('#edit_description').val();
-        const other_category = $('#edit_other_category').val();
 
+        // Send the updated data to the backend
         $.ajax({
             url: "../../backend/edit_expense.php",
             method: "POST",
@@ -101,97 +134,110 @@ $(document).ready(function () {
                 category_id: category_id,
                 amount: amount,
                 date: date,
-                description: description,
-                other_category: other_category
+                description: description
             },
-            success: function () {
-                alert("Expense updated successfully!");
-                $('#editExpenseModal').modal('hide');
-                loadExpenses();
+            dataType: 'json',
+            success: function (response) {
+                if (response.success) {
+                    showUpdateFeedbackMessage("Expense updated successfully!", 'alert-success');
+                    $('#editExpenseModal').modal('hide'); // Hide the edit modal
+                    loadExpenses(); // Reload the expenses to reflect changes
+                } else {
+                    showUpdateFeedbackMessage(response.error, 'alert-danger');
+                }
             },
             error: function (xhr, status, error) {
                 console.error("Failed to update expense:", error);
-                alert("Failed to update expense. Please try again.");
+                showUpdateFeedbackMessage("Failed to update expense. Please try again.", 'alert-danger');
             }
         });
     });
 
-    // Add Expense
-    $('#add-expense-form').on('submit', function (e) {
-        e.preventDefault();
-
-        const category_id = $('#category_id').val();
-        const amount = $('#amount').val();
-        const date = $('#date').val();
-        const description = $('#description').val();
-        const other_category = $('#other_category').val();
-
+    /**
+     * Handles the submission of the Add Expense form.
+     * Sends the new expense data to the backend for processing.
+     */
+    $('#add-expense-form').on('submit', function(e) {
+        e.preventDefault(); // Prevent the default form submission
+        
+        // Send the new expense data to the backend
         $.ajax({
-            url: "../../backend/add_expense.php",
-            method: "POST",
-            data: {
-                category_id: category_id,
-                amount: amount,
-                date: date,
-                description: description,
-                other_category: other_category
+            url: $(this).attr('action'), // The form's action attribute contains the backend URL
+            method: 'POST',
+            data: $(this).serialize(), // Serialize the form data
+            dataType: 'json',
+            success: function(response) {
+                if (response.success) {
+                    showAddFeedbackMessage('Expense added successfully!', 'alert-success');
+                    $('#addExpenseModal').modal('hide'); // Hide the add expense modal
+                    $('#add-expense-form')[0].reset(); // Reset the form fields
+                    loadExpenses(); // Reload the expenses to include the new entry
+                } else {
+                    showAddFeedbackMessage(response.error, 'alert-danger');
+                }
             },
-            success: function () {
-                alert("Expense added successfully!");
-                $('#addExpenseModal').modal('hide');
-                loadExpenses();
-            },
-            error: function (xhr, status, error) {
-                console.error("Failed to add expense:", error);
-                alert("Failed to add expense. Please try again.");
+            error: function(xhr, status, error) {
+                console.error('Error adding expense:', error);
+                showAddFeedbackMessage('Error adding expense. Please try again.', 'alert-danger');
             }
         });
     });
 
-    // Show Delete Confirmation Modal
+    /**
+     * Handles the click event on the Delete button.
+     * Opens the delete confirmation modal with the selected expense ID.
+     */
     $(document).on("click", ".delete-btn", function () {
-        const id = $(this).data("id");
-        $('#delete_expense_id').val(id);
-        $('#deleteExpenseModal').modal('show');
+        const id = $(this).data("id"); // Get the expense ID from the data attribute
+        $('#delete_expense_id').val(id); // Set the expense ID in the hidden input of the delete modal
+        $('#deleteExpenseModal').modal('show'); // Show the delete confirmation modal
     });
 
-    // Confirm Delete Expense
+    /**
+     * Handles the confirmation of deleting an expense.
+     * Sends a request to the backend to delete the specified expense.
+     */
     $('#confirm-delete-expense').on('click', function () {
-        const id = $('#delete_expense_id').val();
+        const id = $('#delete_expense_id').val(); // Get the expense ID to delete
 
+        // Send the delete request to the backend
         $.ajax({
             url: `../../backend/delete_expense.php?id=${id}`,
             method: "POST",
-            success: function () {
-                alert("Expense deleted successfully!");
-                $('#deleteExpenseModal').modal('hide');
-                loadExpenses();
+            dataType: 'json',
+            success: function (response) {
+                if (response.success) {
+                    showDeleteFeedbackMessage("Expense deleted successfully!", 'alert-success');
+                    $('#deleteExpenseModal').modal('hide'); // Hide the delete confirmation modal
+                    loadExpenses(); // Reload the expenses to reflect deletion
+                } else {
+                    showDeleteFeedbackMessage(response.error, 'alert-danger');
+                }
             },
             error: function (xhr, status, error) {
                 console.error("Failed to delete expense:", error);
-                alert("Failed to delete expense. Please try again.");
+                showDeleteFeedbackMessage("Failed to delete expense. Please try again.", 'alert-danger');
             }
         });
     });
 
-    // Export Expenses
+    /**
+     * Handles the click event on the Export button.
+     * Redirects the user to the export script to download expenses.
+     */
     $(document).on("click", ".btn.export", function () {
-        window.location.href = "../../backend/export_expense.php";
+        window.location.href = "../../backend/export_expense.php"; // Redirect to the export endpoint
     });
 
-    // Select row in the expense table
+    /**
+     * Handles the click event on any row in the expense table.
+     * Highlights the selected row.
+     */
     $(document).on("click", "#expense-list tr", function () {
-        $(this).addClass('selected').siblings().removeClass('selected');
+        $(this).addClass('selected').siblings().removeClass('selected'); // Highlight the selected row and remove highlighting from others
     });
 
-    // Refresh chart data when expenses are loaded or modified
-    function refreshChartData() {
-        const filter = $('#filter-select').val();
-        loadChartData(filter);
-    }
-
-    // Event listener for filter change
-    $('#filter-select').on('change', function () {
-        refreshChartData();
-    });
+    // Initial load of expenses when the document is ready
+    initializeDataTable(); // Initialize DataTable once
+    loadExpenses();
 });

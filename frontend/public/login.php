@@ -31,11 +31,13 @@ unset($_SESSION['message']); // Clear the message after displaying it
                 </div>
                 <button type="submit">Login</button>
                 <br>
-                <div class="remember-me-container">
-                    <label for="remember-me">Remember Me</label>
-                    <input type="checkbox" id="remember-me" name="remember-me">
+                <div class="remember-forgot-container">
+                    <div class="remember-me-container">
+                        <input type="checkbox" id="remember-me" name="remember-me">
+                        <label for="remember-me">Remember Me</label>
+                    </div>
+                    <a href="forgot_password.php" class="forgot-password-link">Forgot Password?</a>
                 </div>
-                <p class="forgot-password-link"><a href="forgot_password.php">Forgot Password?</a></p>
                 <p class="register-link">New user? <a href="register.php">Register here</a></p>
             </form>
         </div>

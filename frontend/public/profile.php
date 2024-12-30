@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_profile'])) {
         <form id="delete-profile-form" action="../../backend/delete_profile.php" method="post">
             <button type="button" class="delete-btn btn btn-danger" data-toggle="modal" data-target="#deleteProfileModal">Delete Profile</button>
         </form>
-        <a href="dashboard.php">Back to Dashboard</a>
+        <a href="dashboard.php" class="back-to-dashboard">Back to Dashboard</a>
     </div>
 
     <!-- Delete Profile Modal -->

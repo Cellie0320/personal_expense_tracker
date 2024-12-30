@@ -98,7 +98,7 @@ a:hover {
 
 /* Link Styling */
 a.back-link {
-    color: black; /* Use black text for the back link */
+    color: black !important; /* Use black text for the back link and ensure it stays black */
     text-decoration: none;
     margin-top: 10px;
     display: inline-block;
@@ -106,4 +106,16 @@ a.back-link {
 
 a.back-link:hover {
     text-decoration: underline;
+}
+
+a.back-link:visited {
+    color: black !important; /* Ensure the link remains black when visited */
+}
+
+a.back-link:active {
+    color: black !important; /* Ensure the link remains black when clicked */
+}
+
+a.back-link:focus {
+    color: black !important; /* Ensure the link remains black when focused */
 }

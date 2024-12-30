@@ -7,7 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
             datasets: [{
                 label: 'Amount (R)',
                 data: [], // Dynamically loaded expense amounts
-                backgroundColor: ['#ff6384', '#36a2eb', '#cc65fe', '#ffce56', '#4bc0c0', '#9966ff', '#ff9f40']
+                backgroundColor: [
+                    '#ff6384', '#36a2eb', '#cc65fe', '#ffce56',
+                    '#4bc0c0', '#9966ff', '#ff9f40', '#c9cbcf',
+                    '#ffcd56', '#4bc0c0'
+                ]
             }]
         },
         options: {
@@ -45,26 +49,23 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Fetch and update chart data
-    function loadChartData(filter = 'month') {
+    function loadChartData(filter = 'monthly') {
         $.ajax({
             url: `../../backend/fetch_expenses.php?filter=${filter}`, // Adjusted path
             method: "GET",
+            dataType: 'json', // Ensure the response is parsed as JSON
             success: function (response) {
-                const data = JSON.parse(response); // Parse data from backend
-                const aggregatedData = {};
+                console.log("Fetch Expenses Response:", response); // Debugging line
+                if (response.error) {
+                    console.error(response.error);
+                    return;
+                }
 
-                // Aggregate expenses by category
-                data.expenses.forEach(expense => {
-                    if (aggregatedData[expense.category_name]) {
-                        aggregatedData[expense.category_name] += parseFloat(expense.amount);
-                    } else {
-                        aggregatedData[expense.category_name] = parseFloat(expense.amount);
-                    }
-                });
+                const labels = response.labels;
+                const values = response.values;
 
-                // Prepare data for the chart
-                const labels = Object.keys(aggregatedData);
-                const values = Object.values(aggregatedData);
+                console.log("Labels:", labels); // Debugging line
+                console.log("Values:", values); // Debugging line
 
                 expenseChart.data.labels = labels;
                 expenseChart.data.datasets[0].data = values;
@@ -93,18 +94,26 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to show expense details in a modal
     function showExpenseDetails(category) {
         $.ajax({
-            url: `../../backend/fetch_expense_details.php?category=${category}`, // Adjusted path
+            url: `../../backend/fetch_expense_details.php?category=${encodeURIComponent(category)}`, // Adjusted path and encoded parameter
             method: "GET",
+            dataType: 'json', // Expecting JSON response
             success: function (response) {
-                const data = JSON.parse(response); // Parse data from backend
+                console.log("Fetch Expense Details Response:", response); // Debugging line
+                if (response.error) {
+                    console.error(response.error);
+                    return;
+                }
+
+                const data = response;
                 let detailsHtml = '<div class="expense-details">';
                 data.forEach(expense => {
                     detailsHtml += `
                         <div class="expense-item">
-                            <div class="expense-description">${expense.description}</div>
-                            <div class="expense-amount">R${expense.amount}</div>
-                            <div class="expense-date">${expense.date}</div>
-                        </div>`;
+                            <div class="expense-description">${escapeHtml(expense.description)}</div>
+                            <div class="expense-amount">R${parseFloat(expense.amount).toFixed(2)}</div>
+                            <div class="expense-date">${escapeHtml(expense.date)}</div>
+                        </div>
+                        <hr>`;
                 });
                 detailsHtml += '</div>';
                 $('#expenseDetailsModal .modal-body').html(detailsHtml);
@@ -114,5 +123,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error("Failed to load expense details:", error);
             }
         });
+    }
+
+    // Utility function to escape HTML
+    function escapeHtml(text) {
+        return text
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
     }
 });

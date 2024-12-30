@@ -60,10 +60,11 @@ $currentYear = date("Y"); // Get the current year
         <div class="chart">
           <h3 class="expenses-overview-title">Expenses Overview</h3>
           <select id="filter-select" class="form-control mb-3">
-            <option value="week">Week</option>
-            <option value="month" selected>Month</option>
-            <option value="year">Year</option>
-          </select>
+         <option value="daily">Daily</option>
+         <option value="weekly">Weekly</option>
+        <option value="monthly" selected>Monthly</option>
+       <option value="yearly">Yearly</option>
+        </select>
           <div class="chart-container">
             <canvas id="expenseChart"></canvas>
           </div>

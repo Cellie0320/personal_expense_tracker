@@ -1,4 +1,5 @@
 <?php
+// filepath: /c:/Users/User/Downloads/server/UniServerZ/www/personal_expense_tracker/backend/fetch_expenses.php
 require_once 'DBConnection.php'; // Ensure $pdo connection is available
 
 session_start();
@@ -10,28 +11,32 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $userId = $_SESSION['user_id'];
-$filter = $_GET['filter'] ?? 'month'; // Default to 'month' if no filter is provided
+$filter = $_GET['filter'] ?? 'monthly'; // Default to 'monthly' if no filter is provided
 
 // Determine the date range based on the filter
 switch ($filter) {
-    case 'week':
+    case 'daily':
+        $dateRange = "CURDATE()";
+        break;
+    case 'weekly':
         $dateRange = "DATE_SUB(CURDATE(), INTERVAL 1 WEEK)";
         break;
-    case 'year':
+    case 'yearly':
         $dateRange = "DATE_SUB(CURDATE(), INTERVAL 1 YEAR)";
         break;
-    case 'month':
+    case 'monthly':
     default:
         $dateRange = "DATE_SUB(CURDATE(), INTERVAL 1 MONTH)";
         break;
 }
 
-// Fetch expenses for the logged-in user within the date range
-$query = "SELECT e.id, e.user_id, e.category_id, c.name as category_name, e.amount, e.date, e.description, e.created_at, SUM(e.amount) as total_amount 
+// Fetch expenses for the logged-in user within the date range, aggregated by category
+$query = "SELECT c.name AS category_name, SUM(e.amount) AS total_amount 
           FROM expenses e
           JOIN categories c ON e.category_id = c.id
           WHERE e.user_id = :user_id AND e.date >= $dateRange 
-          GROUP BY e.id, e.user_id, e.category_id, c.name, e.amount, e.date, e.description, e.created_at";
+          GROUP BY c.name";
+
 $stmt = $pdo->prepare($query);
 $stmt->execute(['user_id' => $userId]);
 $expenses = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -40,8 +45,8 @@ $expenses = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $labels = [];
 $values = [];
 foreach ($expenses as $expense) {
-    $labels[] = $expense['category_name']; // Use category names as labels
-    $values[] = $expense['total_amount'];
+    $labels[] = htmlspecialchars($expense['category_name'], ENT_QUOTES, 'UTF-8'); // Sanitize category names
+    $values[] = floatval($expense['total_amount']); // Convert total_amount to float
 }
 
 echo json_encode(['labels' => $labels, 'values' => $values, 'expenses' => $expenses]);

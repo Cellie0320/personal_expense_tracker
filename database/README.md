@@ -58,7 +58,7 @@ The database plays a crucial role in the Expense Tracker project by:
 
 ## SQL Dump
 
-The SQL dump file (#file:expensetracker-db_sql.sql-context) contains the schema and initial data for the Expense Tracker database. It includes the following:
+The SQL dump file [`expensetracker-db_sql.sql`](./expensetracker-db_sql.sql) contains the schema and initial data for the Expense Tracker database. It includes the following:
 
 - Table creation statements for `categories`, `expenses`, and `users`.
 - Insert statements for initial data in each table.

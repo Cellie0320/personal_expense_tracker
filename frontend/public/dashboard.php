@@ -15,6 +15,7 @@ $currentYear = date("Y"); // Get the current year
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Expense Dashboard</title>
   <link rel="stylesheet" href="dashboard.css">
+  <!-- External CSS and JS Libraries -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -23,6 +24,8 @@ $currentYear = date("Y"); // Get the current year
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  
+  <!-- External JS Files -->
   <script src="chart.js"></script>
   <script src="ajax.js"></script>
   <script src="script.js"></script>
@@ -60,11 +63,11 @@ $currentYear = date("Y"); // Get the current year
         <div class="chart">
           <h3 class="expenses-overview-title">Expenses Overview</h3>
           <select id="filter-select" class="form-control mb-3">
-         <option value="daily">Daily</option>
-         <option value="weekly">Weekly</option>
-        <option value="monthly" selected>Monthly</option>
-       <option value="yearly">Yearly</option>
-        </select>
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly" selected>Monthly</option>
+            <option value="yearly">Yearly</option>
+          </select>
           <div class="chart-container">
             <canvas id="expenseChart"></canvas>
           </div>
@@ -100,45 +103,44 @@ $currentYear = date("Y"); // Get the current year
       </div>
     </div>
 
- <!-- Table Modal -->
-<div class="modal fade" id="expenseModal" tabindex="-1" role="dialog" aria-labelledby="expenseModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="expenseModalLabel">Manage Expenses</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="table-container">
-          <!-- Removed filter-container block -->
-          <table id="expense-table" class="table table-striped">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>User ID</th>
-                <th>Category</th>
-                <th>Amount</th>
-                <th>Date</th>
-                <th>Description</th>
-                <th>Created At</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody id="expense-list">
-              <!-- Expenses will be dynamically loaded here -->
-            </tbody>
-          </table>
+    <!-- Table Modal -->
+    <div class="modal fade" id="expenseModal" tabindex="-1" role="dialog" aria-labelledby="expenseModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="expenseModalLabel">Manage Expenses</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="table-container">
+              <table id="expense-table" class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>User ID</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Created At</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="expense-list">
+                  <!-- Expenses will be dynamically loaded here -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn-primary-add" data-toggle="modal" data-target="#addExpenseModal">Add Expense</button>
+          </div>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn-primary-add" data-toggle="modal" data-target="#addExpenseModal">Add Expense</button>
-      </div>
     </div>
-  </div>
-</div>
 
     <!-- Add Expense Modal -->
     <div class="modal fade" id="addExpenseModal" tabindex="-1" role="dialog" aria-labelledby="addExpenseModalLabel" aria-hidden="true">
@@ -249,20 +251,21 @@ $currentYear = date("Y"); // Get the current year
       </div>
     </div>
 
-<!-- Toast Notification -->
-<div aria-live="polite" aria-atomic="true" style="position: fixed; top: 20px; right: 20px; min-width: 250px; z-index: 1060;">
-  <div id="feedbackToast" class="toast" data-delay="3000">
-    <div class="toast-header">
-      <strong class="mr-auto">Notification</strong>
-      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">
-        <span aria-hidden="true">&times;</span>
-      </button>
+    <!-- Toast Notification -->
+    <div aria-live="polite" aria-atomic="true" style="position: fixed; top: 20px; right: 20px; min-width: 250px; z-index: 1060;">
+      <div id="feedbackToast" class="toast" data-delay="3000">
+        <div class="toast-header">
+          <strong class="mr-auto">Notification</strong>
+          <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="toast-body" id="toast-body">
+          <!-- Feedback message will be injected here -->
+        </div>
+      </div>
     </div>
-    <div class="toast-body" id="toast-body">
-      <!-- Feedback message will be injected here -->
-    </div>
-  </div>
-</div>
+
     <!-- Expense Details Modal for viewing expense in the chart when clicking on a specific data bar -->
     <div class="modal fade" id="expenseDetailsModal" tabindex="-1" role="dialog" aria-labelledby="expenseDetailsModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -283,9 +286,10 @@ $currentYear = date("Y"); // Get the current year
       </div>
     </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; <?php echo $currentYear; ?> ZARWISE. All rights reserved.</p>
-  </footer>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; <?php echo $currentYear; ?> ZARWISE. All rights reserved.</p>
+    </footer>
+  </div>
 </body>
 </html>

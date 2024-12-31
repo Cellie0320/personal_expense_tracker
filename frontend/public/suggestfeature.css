@@ -19,12 +19,12 @@ body {
 
 /* Container for the form */
 .container {
-    background-color: transparent; /* Semi-transparent background */
+    background-color: transparent;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     width: 100%;
-    max-width: 200px; /* Make the form container smaller in width */
+    max-width: 200px;
     text-align: center;
 }
 
@@ -32,27 +32,27 @@ body {
 .container h1 {
     margin-bottom: 20px;
     font-size: 1.8rem;
-    color: white; /* Ensure the heading text is white */
+    color: white;
 }
 
 /* Form Styling */
 form {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 10px; /* Reduce gap between form elements */
+    gap: 10px;
     width: 100%;
 }
 
 label {
     font-size: 1.1rem;
     text-align: left;
-    color: white; /* Ensure label text is white */
+    color: white;
 }
 
 input[type="text"],
 input[type="email"],
 textarea {
-    padding: 8px; /* Reduce padding to make form elements smaller */
+    padding: 8px;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
@@ -65,10 +65,10 @@ textarea {
 
 /* Submit Button Styling */
 button {
-    padding: 8px 16px; /* Reduce padding to make button smaller */
+    padding: 8px 16px;
     font-size: 1rem;
     color: white;
-    background-color: black; /* Black background color */
+    background-color: black;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -76,11 +76,11 @@ button {
 }
 
 button:hover {
-    background-color: darkred; /* Dark red on hover */
+    background-color: darkred;
 }
 
 a {
-    color: white; /* Use white text for links */
+    color: white;
     text-decoration: none;
     margin-top: 10px;
     display: inline-block;
@@ -93,12 +93,12 @@ a:hover {
 .message {
     margin-bottom: 15px;
     font-size: 1rem;
-    color: white; /* Ensure message text is white */
+    color: white;
 }
 
 /* Link Styling */
 a.back-link {
-    color: black !important; /* Use black text for the back link and ensure it stays black */
+    color: black !important;
     text-decoration: none;
     margin-top: 10px;
     display: inline-block;
@@ -109,13 +109,13 @@ a.back-link:hover {
 }
 
 a.back-link:visited {
-    color: black !important; /* Ensure the link remains black when visited */
+    color: black !important;
 }
 
 a.back-link:active {
-    color: black !important; /* Ensure the link remains black when clicked */
+    color: black !important;
 }
 
 a.back-link:focus {
-    color: black !important; /* Ensure the link remains black when focused */
+    color: black !important;
 }

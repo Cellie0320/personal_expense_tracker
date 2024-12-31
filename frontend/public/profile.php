@@ -41,17 +41,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_profile'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
+    <!-- Link to the CSS file for styling -->
     <link rel="stylesheet" href="profile.css">
+    <!-- Link to Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link to Bootstrap for styling -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Link to jQuery and Bootstrap JS for modal functionality -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Link to the JavaScript file for form validation and password visibility toggle -->
     <script src="script.js"></script>
 </head>
 <body>
     <div class="container">
         <h1>Edit Profile</h1>
+        <!-- Display message if it exists -->
         <?php if (isset($message)) { echo "<p class='message'>$message</p>"; } ?>
+        <!-- Form for updating profile -->
         <form action="profile.php" method="post">
             <label for="username">New Username:</label>
             <input type="text" id="username" name="username" value="<?php echo $username; ?>" required>
@@ -63,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_profile'])) {
             <button type="submit" name="update_profile">Update Profile</button>
         </form>
         <br>
+        <!-- Form for deleting profile -->
         <form id="delete-profile-form" action="../../backend/delete_profile.php" method="post">
             <button type="button" class="delete-btn btn btn-danger" data-toggle="modal" data-target="#deleteProfileModal">Delete Profile</button>
         </form>

@@ -1,17 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Get the context of the canvas element we want to select
     const ctx = document.getElementById('expenseChart').getContext('2d');
+
+    // Create a new Chart instance
     window.expenseChart = new Chart(ctx, {
-        type: 'bar',
+        type: 'bar', // Chart type
         data: {
             labels: [], // Dynamically loaded categories
             datasets: [{
-                label: 'Amount (R)',
+                label: 'Amount (R)', // Dataset label
                 data: [], // Dynamically loaded expense amounts
                 backgroundColor: [
                     '#ff6384', '#36a2eb', '#cc65fe', '#ffce56',
                     '#4bc0c0', '#9966ff', '#ff9f40', '#c9cbcf',
                     '#ffcd56', '#4bc0c0'
-                ]
+                ] // Colors for each bar
             }]
         },
         options: {
@@ -21,34 +24,34 @@ document.addEventListener('DOMContentLoaded', function () {
                 x: {
                     title: {
                         display: true,
-                        text: 'Categories'
+                        text: 'Categories' // X-axis title
                     }
                 },
                 y: {
                     beginAtZero: true,
                     title: {
                         display: true,
-                        text: 'Amount (R)'
+                        text: 'Amount (R)' // Y-axis title
                     }
                 }
             },
             plugins: {
                 legend: {
                     display: true,
-                    position: 'top'
+                    position: 'top' // Position of the legend
                 }
             },
             onClick: function (event, elements) {
                 if (elements.length > 0) {
                     const index = elements[0].index;
                     const category = expenseChart.data.labels[index];
-                    showExpenseDetails(category);
+                    showExpenseDetails(category); // Show details for the clicked category
                 }
             }
         }
     });
 
-    // Fetch and update chart data
+    // Function to fetch and update chart data
     function loadChartData(filter = 'monthly') {
         $.ajax({
             url: `../../backend/fetch_expenses.php?filter=${filter}`, // Adjusted path
@@ -67,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log("Labels:", labels); // Debugging line
                 console.log("Values:", values); // Debugging line
 
+                // Update chart data
                 expenseChart.data.labels = labels;
                 expenseChart.data.datasets[0].data = values;
                 expenseChart.update();
@@ -80,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initial load of chart data
     loadChartData();
 
-    // Function to refresh chart data
+    // Function to refresh chart data based on selected filter
     function refreshChartData() {
         const filter = $('#filter-select').val();
         loadChartData(filter);

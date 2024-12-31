@@ -97,6 +97,7 @@ input:invalid {
     color: red;
 }
 
+/* Password container styling */
 .password-container {
     position: relative;
     width: 100%;
@@ -116,6 +117,7 @@ input:invalid {
     color: black;
 }
 
+/* Remember me container styling */
 .remember-me-container {
     display: flex;
     align-items: center;
@@ -128,6 +130,7 @@ input:invalid {
     height: 20px;
     accent-color: black;
 }
+
 /* Forgot password link styling */
 .forgot-password-link {
     margin-top: 10px;
@@ -149,7 +152,7 @@ input:invalid {
     color: white;
 }
 
-.register-link a , .login-link a {
+.register-link a, .login-link a {
     color: black;
     text-decoration: none;
 }
@@ -158,6 +161,7 @@ input:invalid {
     text-decoration: underline;
 }
 
+/* Button styling */
 button {
     width: 100%;
     padding: 15px;
@@ -172,42 +176,20 @@ button {
 }
 
 button:hover {
-    background:darkred;
+    background: darkred;
 }
 
 /* Button focus styling */
 button:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(255,0,0,0.5);
+    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.5);
 }
 
+/* Remember and forgot container styling */
 .remember-forgot-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.remember-me-container {
-    display: flex;
-    align-items: center;
-    color: white;
-}
-
-.remember-me-container input {
-    margin-right: 5px;
-    width: 20px;
-    height: 20px;
-    accent-color: black;
-}
-
-.forgot-password-link {
-    color: black; /* Changed to black */
-    text-decoration: none;
-    margin-top: -5px;
-}
-
-.forgot-password-link:hover {
-    text-decoration: underline;
 }
 
 /* Error message styling */

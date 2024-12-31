@@ -1,3 +1,4 @@
+// Validate email address
 function validateEmail() {
     const emailInput = document.getElementById('email');
     const emailMessage = document.getElementById('emailMessage');
@@ -16,6 +17,7 @@ function validateEmail() {
     }
 }
 
+// Validate password strength
 function validatePassword() {
     const passwordInput = document.getElementById('password') || document.getElementById('new_password');
     const passwordMessage = document.getElementById('passwordMessage');
@@ -35,6 +37,7 @@ function validatePassword() {
     }
 }
 
+// Validate form before submission
 function validateForm() {
     const emailValid = validateEmail();
     const passwordValid = validatePassword();
@@ -44,6 +47,7 @@ function validateForm() {
     return emailValid && passwordValid;
 }
 
+// Toggle password visibility
 function togglePasswordVisibility(passwordFieldId) {
     const passwordField = document.getElementById(passwordFieldId);
     const togglePassword = passwordField.nextElementSibling;
@@ -58,6 +62,7 @@ function togglePasswordVisibility(passwordFieldId) {
     }
 }
 
+// Handle "Remember Me" functionality
 function handleRememberMe() {
     const rememberMeCheckbox = document.getElementById('remember-me');
     const usernameInput = document.getElementById('username');
@@ -73,12 +78,14 @@ function handleRememberMe() {
     return true;
 }
 
+// Get cookie value by name
 function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
+// Document ready event
 document.addEventListener('DOMContentLoaded', function () {
     // Check if the current page is login.php
     if (window.location.pathname.includes('login.php')) {
@@ -92,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Show/hide other category input
     document.getElementById('category_id').addEventListener('change', function() {
         var otherCategoryGroup = document.getElementById('other-category-group');
         if (this.value === 'other') {
@@ -101,6 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // Validate add expense form
     document.getElementById('add-expense-form').addEventListener('submit', function(event) {
         var categorySelect = document.getElementById('category_id');
         var otherCategoryInput = document.getElementById('other_category');
@@ -156,10 +165,11 @@ document.addEventListener('DOMContentLoaded', function () {
     fetchTotalExpenses();
 });
 
-/*contact form reset*/
+/* Contact form reset */
 function resetForm() {
     document.getElementById('contactForm').reset();
 }
+
 // Delete profile confirmation
 $(document).ready(function() {
     $('#confirm-delete-profile').on('click', function() {

@@ -1,3 +1,6 @@
+<?php
+$username = isset($_GET['username']) ? htmlspecialchars($_GET['username']) : '';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +22,7 @@
             <form action="../../backend/update_password.php" method="post" onsubmit="return validateForm()">
                 <!-- Username field -->
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" value="<?php echo $username; ?>" required>
                 <br>
                 <!-- New Password field with visibility toggle -->
                 <label for="new_password">New Password:</label>

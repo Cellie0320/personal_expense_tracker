@@ -16,7 +16,6 @@ function validateEmail() {
         return false;
     }
 }
-
 // Validate password strength
 function validatePassword() {
     const passwordInput = document.getElementById('password') || document.getElementById('new_password');
@@ -25,9 +24,9 @@ function validatePassword() {
     const strongPasswordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
     if (strongPasswordPattern.test(password)) {
-        passwordInput.style.borderColor = 'green';
+        passwordInput.style.borderColor = 'black';
         passwordMessage.textContent = 'Password is strong';
-        passwordMessage.style.color = 'green';
+        passwordMessage.style.color = 'black';
         return true;
     } else {
         passwordInput.style.borderColor = 'red';
@@ -176,3 +175,9 @@ $(document).ready(function() {
         $('#delete-profile-form').submit();
     });
 });
+// Redirect to forgot password page
+
+function redirectToForgotPassword() {
+    const username = document.getElementById('username').value;
+    window.location.href = `forgot_password.php?username=${encodeURIComponent(username)}`;
+}

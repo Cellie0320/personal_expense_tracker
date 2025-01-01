@@ -44,7 +44,7 @@ unset($_SESSION['message']); // Clear the message after displaying it
                         <input type="checkbox" id="remember-me" name="remember-me">
                         <label for="remember-me">Remember Me</label>
                     </div>
-                    <a href="forgot_password.php" class="forgot-password-link">Forgot Password?</a>
+                    <a href="#" class="forgot-password-link" onclick="redirectToForgotPassword()">Forgot Password?</a>
                 </div>
                 <!-- Register link for new users -->
                 <p class="register-link">New user? <a href="register.php">Register here</a></p>

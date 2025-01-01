@@ -6,32 +6,65 @@ if (!isset($_SESSION['username'])) {
 }
 $username = htmlspecialchars($_SESSION['username']); // Retrieve and sanitize the username
 
-include '../../backend/DBConnection.php'; // Include your database connection file
+include '../../backend/DBConnection.php'; // Included the database connection file
 
 // Enable error reporting for debugging
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Handle form submission
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_profile'])) {
+// Handle form submission for updating username
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_username'])) {
     $new_username = $_POST['username'];
-    $new_password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the new password
 
-    // Update the user's information in the database
-    $query = "UPDATE users SET username = :username, password = :password WHERE username = :current_username";
+    // Update the user's username in the database
+    $query = "UPDATE users SET username = :username WHERE username = :current_username";
     $stmt = $pdo->prepare($query);
     if ($stmt === false) {
         die('Prepare failed: ' . htmlspecialchars($pdo->errorInfo()[2]));
     }
     $stmt->bindParam(':username', $new_username);
-    $stmt->bindParam(':password', $new_password);
     $stmt->bindParam(':current_username', $_SESSION['username']);
     if ($stmt->execute()) {
         $_SESSION['username'] = $new_username; // Update the session username
-        $message = "Profile updated successfully.";
+        $message = "Username updated successfully.";
+        $messageType = "success";
     } else {
-        $message = "Error updating profile.";
+        $message = "Error updating username.";
+        $messageType = "error";
+    }
+}
+
+// Handle form submission for updating password
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_password'])) {
+    $new_password = $_POST['password'];
+
+    // Validate the new password using JavaScript function
+    echo "<script>
+        if (!validatePassword()) {
+            alert('Password is weak. It must be at least 8 characters long, include uppercase and lowercase letters, a number, and a special character.');
+            window.history.back();
+        }
+    </script>";
+
+    $hashed_password = password_hash($new_password, PASSWORD_DEFAULT); // Hash the new password
+
+    // Update the user's password in the database
+    $query = "UPDATE users SET password = :password WHERE username = :current_username";
+    $stmt = $pdo->prepare($query);
+    if ($stmt === false) {
+        die('Prepare failed: ' . htmlspecialchars($pdo->errorInfo()[2]));
+    }
+    $stmt->bindParam(':password', $hashed_password);
+    $stmt->bindParam(':current_username', $_SESSION['username']);
+    if ($stmt->execute()) {
+        // Log the user out after password update
+        session_destroy();
+        header("Location: login.php");
+        exit();
+    } else {
+        $message = "Error updating password.";
+        $messageType = "error";
     }
 }
 ?>
@@ -52,22 +85,44 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_profile'])) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Link to the JavaScript file for form validation and password visibility toggle -->
     <script src="script.js"></script>
+    <!-- Link to Toastify for toast notifications -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </head>
 <body>
     <div class="container">
         <h1>Edit Profile</h1>
         <!-- Display message if it exists -->
-        <?php if (isset($message)) { echo "<p class='message'>$message</p>"; } ?>
-        <!-- Form for updating profile -->
+        <?php if (isset($message)) { ?>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    Toastify({
+                        text: "<?php echo $message; ?>",
+                        duration: 3000,
+                        close: true,
+                        gravity: "top",
+                        position: "right",
+                        backgroundColor: "<?php echo $messageType === 'success' ? 'green' : 'red'; ?>",
+                    }).showToast();
+                });
+            </script>
+        <?php } ?>
+        <!-- Form for updating username -->
         <form action="profile.php" method="post">
             <label for="username">New Username:</label>
             <input type="text" id="username" name="username" value="<?php echo $username; ?>" required>
+            <button type="submit" name="update_username">Update Username</button>
+        </form>
+        <br>
+        <!-- Form for updating password -->
+        <form action="profile.php" method="post" onsubmit="return validatePassword()">
             <label for="password">New Password:</label>
             <div class="password-container">
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" required oninput="validatePassword()">
                 <i class="fas fa-eye" id="togglePassword" onclick="togglePasswordVisibility('password')"></i>
             </div>
-            <button type="submit" name="update_profile">Update Profile</button>
+            <div id="passwordMessage"></div>
+            <button type="submit" name="update_password">Update Password</button>
         </form>
         <br>
         <!-- Form for deleting profile -->

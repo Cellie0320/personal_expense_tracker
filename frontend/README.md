@@ -9,7 +9,7 @@ The Personal Expense Tracker frontend is a web application designed to help user
    ![Index Page](public/img/index.png)
 
 - **login.php**
-  - The login page where users can enter their credentials to access their accounts. It includes form validation and a "Remember Me" feature.
+  - The login page where users can enter their credentials to access their accounts. It includes form validation a "Remember Me" feature and a "Forgot Password" feature.
   ![Login Page](public/img/login.png)
 
 - **register.php**

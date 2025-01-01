@@ -1,7 +1,3 @@
-# Personal Expense Tracker - Frontend
-
-## Overview
-
 The Personal Expense Tracker frontend is a web application designed to help users manage their personal finances by tracking expenses, setting budgets, and viewing financial summaries. The frontend is built using HTML, CSS, and JavaScript, and it interacts with a backend server to store and retrieve data.
 
 ## File Descriptions
@@ -10,34 +6,38 @@ The Personal Expense Tracker frontend is a web application designed to help user
 
 - **index.php**
   - The landing page of the application. It provides options for users to log in or register.
-  ![Index Page
+   ![Index Page](public/img/index.png)
 
 - **login.php**
   - The login page where users can enter their credentials to access their accounts. It includes form validation and a "Remember Me" feature.
+  ![Login Page](public/img/login.png)
 
 - **register.php**
   - The registration page where new users can create an account. It includes form validation for username, email, and password.
-
+    ![Register Page](public/img/register.png)
 
 - **dashboard.php**
   - The main dashboard page where users can view their expenses, set budgets, and see financial summaries. It includes charts and tables for data visualization.
- 
+  ![Dashboard Page](public/img/dashboard.png)
 
 - **profile.php**
   - The profile page where users can update their username and password. It also includes an option to delete the account.
-
+  ![Profile Page](public/img/profile-edit.png)
 
 - **forgot_password.php**
   - The page where users can reset their password if they have forgotten it. It includes form validation for the new password.
-
+  ![Forgot Password](public/img/forgot-password.png)
 
 - **suggestfeature.php**
   - The page where users can suggest new features for the application. It includes a form to submit suggestions via email.
-
+  ![Suggest a Feature](public/img/suggest-a-feature.png)
 
 - **contactform.php**
   - The contact form page where users can send queries or feedback. It includes form validation for the email field.
-  
+  ![Contact Form Page](public/img/contact-form.png)
+
+- **logout.php**
+  - The script that handles user logout by destroying the session and redirecting to the login page.
 
 ### CSS Files
 

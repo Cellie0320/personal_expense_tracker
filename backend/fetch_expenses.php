@@ -1,5 +1,4 @@
 <?php
-// filepath: /c:/Users/User/Downloads/server/UniServerZ/www/personal_expense_tracker/backend/fetch_expenses.php
 require_once 'DBConnection.php'; // Ensure $pdo connection is available
 
 session_start();

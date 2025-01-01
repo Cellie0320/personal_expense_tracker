@@ -1,4 +1,5 @@
 <?php
+// gets the username from the URL query string
 $username = isset($_GET['username']) ? htmlspecialchars($_GET['username']) : '';
 ?>
 <!DOCTYPE html>

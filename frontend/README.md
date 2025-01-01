@@ -2,7 +2,7 @@ The Personal Expense Tracker frontend is a web application designed to help user
 
 ## File Descriptions
 
-### HTML Files
+### HTML/PHP Files
 
 - **index.php**
   - The landing page of the application. It provides options for users to log in or register.

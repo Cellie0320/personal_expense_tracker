@@ -241,3 +241,4 @@ $(document).ready(function() {
     initializeDataTable(); // Initialize DataTable once
     loadExpenses();
 });
+

@@ -36,6 +36,7 @@ function validatePassword() {
     }
 }
 
+
 // Validate form before submission
 function validateForm() {
     const emailValid = validateEmail();
@@ -47,20 +48,19 @@ function validateForm() {
 }
 
 // Toggle password visibility
-function togglePasswordVisibility(passwordFieldId) {
-    const passwordField = document.getElementById(passwordFieldId);
-    const togglePassword = passwordField.nextElementSibling;
+function togglePasswordVisibility(id) {
+    const passwordField = document.getElementById(id);
+    const toggleIcon = document.getElementById('togglePassword');
     if (passwordField.type === 'password') {
         passwordField.type = 'text';
-        togglePassword.classList.remove('fa-eye');
-        togglePassword.classList.add('fa-eye-slash');
+        toggleIcon.classList.remove('fa-eye');
+        toggleIcon.classList.add('fa-eye-slash');
     } else {
         passwordField.type = 'password';
-        togglePassword.classList.remove('fa-eye-slash');
-        togglePassword.classList.add('fa-eye');
+        toggleIcon.classList.remove('fa-eye-slash');
+        toggleIcon.classList.add('fa-eye');
     }
 }
-
 // Handle "Remember Me" functionality
 function handleRememberMe() {
     const rememberMeCheckbox = document.getElementById('remember-me');
@@ -76,7 +76,7 @@ function handleRememberMe() {
     }
     return true;
 }
-
+// WORK IN PROGRESS - NOT FULLY IMPLEMENTED YET
 // Get cookie value by name
 function getCookie(name) {
     const value = `; ${document.cookie}`;
@@ -84,7 +84,7 @@ function getCookie(name) {
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
-// Document ready event
+// to ensure that the login cookie only works on the login page and not on other pages
 document.addEventListener('DOMContentLoaded', function () {
     // Check if the current page is login.php
     if (window.location.pathname.includes('login.php')) {
@@ -97,16 +97,6 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('remember-me').checked = true;
         }
     }
-
-    // Show/hide other category input
-    document.getElementById('category_id').addEventListener('change', function() {
-        var otherCategoryGroup = document.getElementById('other-category-group');
-        if (this.value === 'other') {
-            otherCategoryGroup.style.display = 'block';
-        } else {
-            otherCategoryGroup.style.display = 'none';
-        }
-    });
 
     // Validate add expense form
     document.getElementById('add-expense-form').addEventListener('submit', function(event) {
@@ -148,18 +138,6 @@ document.addEventListener('DOMContentLoaded', function () {
         calculateSavings(totalExpenses);
     });
 
-    // Event listener for OK button
-    $('#budget-ok').on('click', function () {
-        const totalExpenses = parseFloat($('#total-expenses').text().replace('R', '')) || 0;
-        calculateSavings(totalExpenses);
-    });
-
-    // Event listener for Cancel button
-    $('#budget-cancel').on('click', function () {
-        $('#budget-input').val('');
-        $('#savings').text('R0');
-    });
-
     // Initial fetch of total expenses
     fetchTotalExpenses();
 });
@@ -175,8 +153,8 @@ $(document).ready(function() {
         $('#delete-profile-form').submit();
     });
 });
-// Redirect to forgot password page
 
+// Redirect to forgot password page
 function redirectToForgotPassword() {
     const username = document.getElementById('username').value;
     window.location.href = `forgot_password.php?username=${encodeURIComponent(username)}`;

@@ -69,4 +69,4 @@ The Personal Expense Tracker frontend is a web application designed to help user
 
 ## Contributing
 
-If you would like to contribute to the project, please fork the repository and submit a pull request with your changes. Ensure that your code follows the existing coding standards and includes appropriate comments.
+For any issues or contributions, please refer to the project's repository or contact the maintainer.

@@ -126,6 +126,6 @@ The backend of the Personal Expense Tracker application is built using PHP and M
   - Deletes the user profile from the database.
   - Destroys the session and redirects to the index page.
 
----
+## Contributing
 
 For any issues or contributions, please refer to the project's repository or contact the maintainer.

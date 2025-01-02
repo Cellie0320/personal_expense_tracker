@@ -1,5 +1,5 @@
 <?php
-require_once 'DBConnection.php'; // Ensure $pdo connection is available
+require_once 'DBConnection.php'; // imports the $pdo variable and database connection functionality
 
 session_start();
 

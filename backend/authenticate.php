@@ -1,7 +1,6 @@
 <?php
 session_start();
-include 'DBConnection.php'; /* Include your database connection file to import $pdo and 
-other database-related objects */
+include 'DBConnection.php'; // imports the $pdo variable and database connection functionality
 
 // Enable error reporting for debugging
 ini_set('display_errors', 1);

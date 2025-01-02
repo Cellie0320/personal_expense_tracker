@@ -6,7 +6,7 @@ if (!isset($_SESSION['username'])) {
 }
 $username = htmlspecialchars($_SESSION['username']); // Retrieve and sanitize the username
 
-include 'DBConnection.php'; // Included the database connection file
+include 'DBConnection.php';  // imports the $pdo variable and database connection functionality
 
 // Enable error reporting for debugging
 ini_set('display_errors', 1);

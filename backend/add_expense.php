@@ -1,5 +1,6 @@
 <?php
-require_once 'DBConnection.php';
+require_once 'DBConnection.php';  // imports the $pdo variable and database connection functionality
+// Start the session
 session_start();
 
 // Check if the user is authenticated

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'DBConnection.php'; // Include your database connection file
+include 'DBConnection.php';  // imports the $pdo variable and database connection functionality
 
 // Constants for error messages
 define('USER_EXISTS_ERROR', 'Username or email already exists. <a href="login.php">Login here</a>');
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location: ../frontend/public/register.php");
         exit();
     } else {
-        // Create the user
+        // Creates the user
         if (createUser($username, $email, $password, $pdo)) {
             header("Location: ../frontend/public/login.php");
             exit();

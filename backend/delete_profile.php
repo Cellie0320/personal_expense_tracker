@@ -1,5 +1,5 @@
 <?php
-require_once 'DBConnection.php'; // Ensure $pdo connection is available
+require_once 'DBConnection.php';  // imports the $pdo variable and database connection functionality
 
 session_start();
 
@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-// Delete the user profile
+// Delete's the user profile
 $query = "DELETE FROM users WHERE id = :user_id";
 $stmt = $pdo->prepare($query);
 $stmt->execute(['user_id' => $user_id]);

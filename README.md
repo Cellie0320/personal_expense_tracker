@@ -42,7 +42,8 @@ project using UniServer. It includes installing UniServer, cloning the repositor
    - Navigate to the extracted UniServer directory and run `UniController.exe`.
    - Click on the "Start Apache" and "Start MySQL" buttons to start the web server and database server.
    - If prompted for a new MySQL password, choose an easy-to-remember secure password.
-   > **Note:** The MySQL password you set here will be used in the [DB-Connection](backend/DBConnection.php) file to connect to the database. Ensure that the password matches in both places.
+   > **Note:** This password must match the database password used in the `config.php` file. 
+   Refer to the [Database Configuration](#database-configuration) section for how to create the file.
 
 ### Clone the Repository
 1. **Install Git Bash (if not already installed):**
@@ -75,7 +76,7 @@ project using UniServer. It includes installing UniServer, cloning the repositor
 3. **Import the Database:**
    - Select the `expense_tracker` database from the left sidebar.
    - Click on the "Import" tab.
-   - Click "Choose File" and select the [expensetracker-db_sql.sql](database/expensetracker-db_sql.sql) file from the database directory of the cloned repository.
+   - Click "Choose File" and select the expensetracker-db_sql.sql file from the database directory of the cloned repository.
    - Click "Go" to import the database.
 
 #### Troubleshooting phpMyAdmin Access
@@ -91,19 +92,31 @@ project using UniServer. It includes installing UniServer, cloning the repositor
   ```
 - To apply these changes, save and close the file then restart UniServer by stopping and then starting the Apache and MySQL servers.
 
-- **Note:** The username and password set in the `config.inc.php` file must also be used in the [DB-Connection](backend/DBConnection.php) file. Specifically in this section
-``` php
-$dsn = 'mysql:host=localhost;dbname=expensetracker';
-$dbusername = 'root';
-$dbpassword = 'your_mysql_password'; //created password in the config.inc.php`file
-```
+- **Note:** The username and password set in the `config.inc.php` file must also be used in the `config.php` file. Refer to the [Database Configuration](#database-configuration) section for detailed instructions.
+
+### Database Configuration
+
+1. **Create the `config.php` file:**
+   - In the backend directory, create a new file named `config.php`.
+
+2. **Add the following content to the `config.php` file and update the database connection settings with your own credentials:**
+   ```php
+   <?php
+   return [
+       'dsn' => 'mysql:host=localhost;dbname=expensetracker',
+       'username' => 'your_username',
+       'password' => 'your_password',
+   ];
+   ```
+
+3. **Save the `config.php` file.**
 
 ## 4. Running the Project
 1. **Start UniServer:**
    - Run the `UniController.exe` file, then start Apache and MySQL.
 
 2. **Access the Project:**
-   - After starting Apache and MYSQL the UniServer test page will appear (`http://localhost`).
+   - After starting Apache and MySQL, the UniServer test page will appear (`http://localhost`).
    - Under the "Served Subdirectories" section, click on the `personal_expense_tracker` folder.
    - Navigate to the frontend folder, then open the `public` folder.
 
@@ -116,6 +129,3 @@ If you have any questions or need further assistance, you can contact the mainta
 
 ## License
 This project is licensed under the Apache License. See the [LICENSE](https://github.com/Cellie0320/personal_expense_tracker/blob/main/LICENSE.md) file for more details.
-
-
-

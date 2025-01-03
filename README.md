@@ -43,6 +43,9 @@ project using UniServer. It includes installing UniServer, cloning the repositor
    - Click on the "Start Apache" and "Start MySQL" buttons to start the web server and database server.
    - If prompted for a new MySQL password, choose an easy-to-remember secure password.
 
+   - **Note:** If you encounter any issues during this process, or can't connect to the database[Troubleshooting phpMyAdmin Access](#troubleshooting-phpmyadmin-access) section for assistance.
+
+
 ### Clone the Repository
 1. **Install Git Bash (if not already installed):**
    - Visit the [Git Bash download page](https://gitforwindows.org/) and download the installer.

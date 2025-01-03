@@ -1,4 +1,6 @@
-[ZARWISE Logo](frontend/public/img/banner.png)
+<p align="center">
+  <img src="frontend/public/img/logo.png" alt="ZARWISE Banner" width="100%" height="auto">
+</p>
 
 # ZARWISE Setup Guide 
 
@@ -9,7 +11,7 @@
     - [Install UniServer](#install-uniserver)
     - [Clone the Repository](#clone-the-repository)
     - [Import MySQL Database](#import-mysql-database)
-      -[Troubleshooting phpMyAdmin Access](#troubleshooting-phpmyadmin-access)
+      - [Troubleshooting phpMyAdmin Access](#troubleshooting-phpmyadmin-access)
 4. [Running the Project](#running-the-project)
 5. [Conclusion](#conclusion)
 

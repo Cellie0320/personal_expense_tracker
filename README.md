@@ -92,7 +92,7 @@ project using UniServer. It includes installing UniServer, cloning the repositor
   ```
 - To apply these changes, save and close the file then restart UniServer by stopping and then starting the Apache and MySQL servers.
 
-- **Note:** The username and password set in the `config.inc.php` file must also be used in the `config.php` file. Refer to the [Database Configuration](#database-configuration) section for detailed instructions.
+> **Note:** The username and password set in the `config.inc.php` file must also be used in the `config.php` file. Refer to the [Database Configuration](#database-configuration) section for detailed instructions.
 
 ### Database Configuration
 

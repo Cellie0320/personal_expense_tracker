@@ -43,7 +43,7 @@ project using UniServer. It includes installing UniServer, cloning the repositor
    - Click on the "Start Apache" and "Start MySQL" buttons to start the web server and database server.
    - If prompted for a new MySQL password, choose an easy-to-remember secure password.
 
-   - **Note:** Should you encounter any issues during this process or face difficulties connecting to the database, please refer to the [Troubleshooting phpMyAdmin Access](#troubleshooting-phpmyadmin-access) section for further assistance.
+   - **Note:** Should you encounter any issues during this process or face difficulties connecting to the database or accessing it via phpMyAdmin, please refer to the [Troubleshooting phpMyAdmin Access](#troubleshooting-phpmyadmin-access) section for further assistance.
 
 
 ### Clone the Repository

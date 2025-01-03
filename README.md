@@ -108,7 +108,7 @@ $dbpassword = 'your_mysql_password'; //created password in the config.inc.php`fi
    - Use the index page to access your account or register a new ZARWISE account.
 
 ## 5. Conclusion
-You have successfully set up and run the Personal Expense Tracker project using UniServer. If you encounter any issues, please refer to the project's repository or contact the maintainer for support. 
+You have successfully set up and run the Personal Expense Tracker project using UniServer.
 If you have any questions or need further assistance, you can contact the maintainer at [marceldelange20@gmail.com](mailto:marceldelange20@gmail.com).
 
 ## License

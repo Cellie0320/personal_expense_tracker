@@ -40,12 +40,6 @@ project using UniServer. It includes installing UniServer, cloning the repositor
    - Navigate to the extracted UniServer directory and run `UniController.exe`.
    - Click on the "Start Apache" and "Start MySQL" buttons to start the web server and database server.
    - If prompted for a new MySQL password, choose an easy-to-remember secure password.
-   - **Note:** The created password must be used in the `DBConnection.php` file:
-     ```php
-    $dsn = 'mysql:host=localhost;dbname=expensetracker';
-     $dbusername = 'root';
-     $dbpassword = 'your_password'; // Replace 'your_password' with the password you created in the config.inc.php file
-        ```
 
 ### Clone the Repository
 1. **Install Git Bash (if not already installed):**
@@ -92,9 +86,14 @@ project using UniServer. It includes installing UniServer, cloning the repositor
   $cfg['Servers'][$i]['password']        = 'your_password'; // MySQL password (only needed with 'config' auth_type)
   $cfg['Servers'][$i]['AllowNoPassword'] = false;     // Must use password
   ```
-- Restart UniServer for the changes to take effect, by stopping the apache and mysql servers then starting it again
+- To apply these changes, restart UniServer by stopping the Apache and MySQL servers, then starting them again.
 
-- **Note:** The username and password set in the `config.inc.php` file must also be used in the `DBConnection.php` file.
+- **Note:** The username and password set in the `config.inc.php` file must also be used in the [DB-Connection](backend/DBConnection.php) file. Specifically in this section
+``` php
+$dsn = 'mysql:host=localhost;dbname=expensetracker';
+$dbusername = 'root';
+$dbpassword = 'your_mysql_password'; //created password in the config.inc.php`file
+```
 
 ## 4. Running the Project
 1. **Start UniServer:**
@@ -113,7 +112,7 @@ You have successfully set up and run the Personal Expense Tracker project using 
 If you have any questions or need further assistance, you can contact the maintainer at [marceldelange20@gmail.com](mailto:marceldelange20@gmail.com).
 
 ## License
-This project is licensed under the Apache License. See the [LICENSE](LICENSE) file for more details.
+This project is licensed under the Apache License. See the [LICENSE](https://github.com/Cellie0320/personal_expense_tracker/blob/main/LICENSE.md) file for more details.
 
 
 

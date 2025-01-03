@@ -1,4 +1,5 @@
-[![ZARWISE logo](frontend/public/img/logo.ico)
+<img src="frontend/public/img/logo.ico" alt="ZARWISE logo" width="50" height="50">
+
 # ZARWISE Setup Guide 
 
 ## Table of Contents

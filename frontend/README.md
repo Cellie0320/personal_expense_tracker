@@ -71,4 +71,4 @@ The Personal Expense Tracker frontend is a web application designed to help user
 
 ## Contributing
 
-For any issues or contributions, please refer to the project's repository or contact the maintainer.
+For any questions or issues, please contact the development team at [marceldelange20@gmail.com](mailto:marceldelange20@gmail.com)

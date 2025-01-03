@@ -42,9 +42,7 @@ project using UniServer. It includes installing UniServer, cloning the repositor
    - Navigate to the extracted UniServer directory and run `UniController.exe`.
    - Click on the "Start Apache" and "Start MySQL" buttons to start the web server and database server.
    - If prompted for a new MySQL password, choose an easy-to-remember secure password.
-
-   - **Note:** Should you encounter any issues during this process or face difficulties connecting to the database or accessing it via phpMyAdmin, please refer to the [Troubleshooting phpMyAdmin Access](#troubleshooting-phpmyadmin-access) section for further assistance.
-
+   > **Note:** The MySQL password you set here will be used in the [DB-Connection](backend/DBConnection.php) file to connect to the database. Ensure that the password matches in both places.
 
 ### Clone the Repository
 1. **Install Git Bash (if not already installed):**
@@ -91,7 +89,7 @@ project using UniServer. It includes installing UniServer, cloning the repositor
   $cfg['Servers'][$i]['password']        = 'your_password'; // MySQL password (only needed with 'config' auth_type)
   $cfg['Servers'][$i]['AllowNoPassword'] = false;     // Must use password
   ```
-- To apply these changes, restart UniServer by stopping the Apache and MySQL servers, then starting them again.
+- To apply these changes, save and close the file then restart UniServer by stopping and then starting the Apache and MySQL servers.
 
 - **Note:** The username and password set in the `config.inc.php` file must also be used in the [DB-Connection](backend/DBConnection.php) file. Specifically in this section
 ``` php

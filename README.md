@@ -1,4 +1,6 @@
-<img src="frontend/public/img/logo.ico" alt="ZARWISE logo" width="100" height="100">
+<p align="center">
+  <img src="frontend/public/img/logo.ico" alt="ZARWISE logo" width="150" height="150">
+</p>
 
 # ZARWISE Setup Guide 
 

@@ -1,6 +1,4 @@
-<img src="frontend/public/img/logo.ico" alt="ZARWISE logo" width="50" height="50">
-
-# ZARWISE Setup Guide 
+<img src="frontend/public/img/logo.ico" alt="ZARWISE logo" width="50" height="50"> # ZARWISE Setup Guide 
 
 ## Table of Contents
 1. [Introduction](#introduction)

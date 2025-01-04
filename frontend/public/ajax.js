@@ -168,7 +168,7 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(response) {
                 if (response.success) {
-                    showAddFeedbackMessage('Expense added successfully!', 'alert-success');
+                    showAddFeedbackMessage('Expense added! Refresh the dashboard to see changes.', 'alert-success');
                     $('#addExpenseModal').modal('hide'); // Hide the add expense modal
                     $('#add-expense-form')[0].reset(); // Reset the form fields
                     loadExpenses(); // Reload the expenses to include the new entry

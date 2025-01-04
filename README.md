@@ -112,9 +112,7 @@ This guide provides step-by-step instructions to set up and run the ZARWISE proj
        'password' => 'your_password',
    ];
    ```
-
-3. **Save the `config.php` file.**
-4. After creating and saving the `config.php` file, ensure that the database connection is correctly configured by verifying the [DB Connection](./backend/DBConnection.php) file.
+   4. After creating and saving the `config.php` file, verify the database connection by ensuring that the [DBConnection.php](./backend/DBConnection.php) file is correctly configured.
 
 ## 5. Running the Project
 1. **Start UniServer:**

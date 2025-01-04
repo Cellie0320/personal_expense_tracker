@@ -50,7 +50,7 @@ This guide provides step-by-step instructions to set up and run the ZARWISE proj
    - Navigate to the extracted UniServer directory and run `UniController.exe`.
    - Click on the "Start Apache" and "Start MySQL" buttons to start the web server and database server.
    - If prompted for a new MySQL password, choose an easy-to-remember secure password.
-   > **Note:** Ensure that the MySQL password set here matches the password specified in the `config.php` file for database connectivity.
+   > **Note:** Ensure that the MySQL password set here matches the password specified in the `config.php` file for database connectivity. Refer to the [Database Configuration](#database-configuration) for more details on how to create and add content to the file
 
 ### Clone the Repository
 1. **Install Git Bash (if not already installed):**
@@ -73,8 +73,8 @@ This guide provides step-by-step instructions to set up and run the ZARWISE proj
 ### Import MySQL Database
 1. **Open phpMyAdmin:**
    - Run the `UniController.exe` file, then start Apache and MySQL.
-   - Open your web browser and go to the UniServer test page (`http://localhost`).
-   - Click on the "phpMyAdmin" link on the UniServer test page.
+   - Your default web browser will open, navigate to the UniServer test page (`http://localhost`).
+      - On the UniServer test page, click the "phpMyAdmin" link.
 
 2. **Create a New Database:**
    - In phpMyAdmin, click on the "Databases" tab.

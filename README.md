@@ -103,12 +103,12 @@ This guide provides step-by-step instructions to set up and run the ZARWISE proj
 1. **Create the `config.php` file:**
    - In the backend directory, create a new file named `config.php`.
 
-2. **Add the following content to the `config.php` file and update the database connection settings with your own credentials:**
+2. **Update the `config.php` file with the following content, ensuring that the database connection settings reflect your credentials. Use 'root' as the username for now, and set the password according to your database configuration or the password specified in the `config.inc.php` file. For further details, refer to the [Troubleshooting phpMyAdmin Access](#troubleshooting-phpmyadmin-access) section for instructions on setting a custom password:**
    ```php
    <?php
    return [
-       'dsn' => 'mysql:host=localhost;dbname=expensetracker',
-       'username' => 'your_username',
+       'dsn' => 'mysql:host=localhost;dbname=expense_tracker',
+       'username' => 'root',
        'password' => 'your_password',
    ];
    ```
@@ -129,7 +129,7 @@ This guide provides step-by-step instructions to set up and run the ZARWISE proj
    - Use the index page to access your account or register a new ZARWISE account.
 
    ## 6. Conclusion and Support
-   You have successfully set up and run the Personal Expense Tracker project using UniServer.
+   You have successfully set up and run the ZARWISE project using UniServer.
    If you have any questions or need further assistance, you can contact the maintainer at [marceldelange20@gmail.com](mailto:marceldelange20@gmail.com).
 
 ## License

@@ -1,6 +1,6 @@
 # Expense Tracker Database
 
-This repository contains the SQL schema and data for the Expense Tracker application. The database is designed to manage user expenses, categories, and related information. Below, you will find the Entity-Relationship Diagram (ERD), a description of the database structure, roles, and other relevant information.
+This repository contains the SQL schema and data for the ZARWISE application. The database is designed to manage user expenses, categories, and related information. Below, you will find the Entity-Relationship Diagram (ERD), a description of the database structure, roles, and other relevant information.
 
 ## Entity-Relationship Diagram (ERD)
 
@@ -65,7 +65,7 @@ The SQL dump file [`expensetracker-db_sql.sql`](./expensetracker-db_sql.sql) con
 - Indexes and constraints for data integrity.
 
 ### How to Import the Database
-Refer to the [Import MYSQL database](./README.md/#how-to-import-the-database) for more details on how to import the database.
+Refer to the [Import MYSQL database](../README.md/#import-mysql-database) for more details on how to import the database.
 
 ## Additional Information
 

@@ -2,14 +2,6 @@
 
 The backend of the Personal Expense Tracker application is built using PHP and MySQL. It handles user authentication, expense management, and data retrieval for various functionalities. The backend interacts with the database through PDO (PHP Data Objects) to ensure secure and efficient database operations.
 
-### Key Features:
-- **User Authentication:** Secure login and registration with password hashing.
-- **Expense Management:** Add, edit, delete, and view expenses.
-- **Data Retrieval:** Fetch expenses, total expenses, and detailed expense information.
-- **Data Export:** Export expenses as a CSV file.
-- **Profile Management:** Update user profile information and delete user profile.
-- **Chart Data:** Retrieve data for generating expense charts.
-
 ### Security Considerations:
 - **Password Hashing:** Passwords are hashed using `password_hash` before storing in the database.
 - **Session Management:** User sessions are managed securely to prevent unauthorized access.

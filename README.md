@@ -13,7 +13,8 @@
     - [Import MySQL Database](#import-mysql-database)
       - [Troubleshooting phpMyAdmin Access](#troubleshooting-phpmyadmin-access)
 4. [Running the Project](#running-the-project)
-5. [Conclusion](#conclusion)
+5. [Key Features](#key-features)
+6. [Conclusion](#conclusion)
 
 ## 1. Introduction
 This guide provides step-by-step instructions to set up and run the ZARWISE personal_expense tracker
@@ -42,8 +43,7 @@ project using UniServer. It includes installing UniServer, cloning the repositor
    - Navigate to the extracted UniServer directory and run `UniController.exe`.
    - Click on the "Start Apache" and "Start MySQL" buttons to start the web server and database server.
    - If prompted for a new MySQL password, choose an easy-to-remember secure password.
-   > **Note:** This password must match the database password used in the `config.php` file. 
-   Refer to the [Database Configuration](#database-configuration) section for how to create the file.
+   > **Note:** The MySQL password you set here will be used in the [DBConnection.php](backend/DBConnection.php) file to connect to the database. Ensure that the password matches in both places.
 
 ### Clone the Repository
 1. **Install Git Bash (if not already installed):**
@@ -92,7 +92,7 @@ project using UniServer. It includes installing UniServer, cloning the repositor
   ```
 - To apply these changes, save and close the file then restart UniServer by stopping and then starting the Apache and MySQL servers.
 
-> **Note:** The username and password set in the `config.inc.php` file must also be used in the `config.php` file. Refer to the [Database Configuration](#database-configuration) section for detailed instructions.
+- **Note:** The username and password set in the `config.inc.php` file must also be used in the `config.php` file. Refer to the Database Configuration section for detailed instructions.
 
 ### Database Configuration
 
@@ -123,7 +123,15 @@ project using UniServer. It includes installing UniServer, cloning the repositor
 3. **Login or Register:**
    - Use the index page to access your account or register a new ZARWISE account.
 
-## 5. Conclusion
+## 5. Key Features
+- **User Authentication:** Secure login and registration with password hashing.
+- **Expense Management:** Add, edit, delete, and view expenses.
+- **Data Retrieval:** Fetch expenses, total expenses, and detailed expense information.
+- **Data Export:** Export expenses as a CSV file.
+- **Profile Management:** Update user profile information and delete user profile.
+- **Chart Data:** Retrieve data for generating expense charts.
+
+## 6. Conclusion
 You have successfully set up and run the Personal Expense Tracker project using UniServer.
 If you have any questions or need further assistance, you can contact the maintainer at [marceldelange20@gmail.com](mailto:marceldelange20@gmail.com).
 

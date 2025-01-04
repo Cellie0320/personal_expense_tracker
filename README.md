@@ -83,7 +83,7 @@ This guide provides step-by-step instructions to set up and run the ZARWISE proj
 3. **Import the Database:**
    - Select the `expense_tracker` database from the left sidebar.
    - Click on the "Import" tab.
-   - Click "Choose File" and select the [SQL File](./database/expensetracker-db_sql.sql) file from the database directory of the cloned repository.
+   - Click "Choose File" and select the [expensetracker-db_sql.sql](./database/expensetracker-db_sql.sql) file from the database directory of the cloned repository.
    - Click "Go" to import the database.
 
 #### Troubleshooting phpMyAdmin Access

@@ -3,7 +3,7 @@
 The backend of the ZARWISE application is built using PHP and MySQL. It handles user authentication, expense management, and data retrieval for various functionalities. The backend interacts with the database through PDO (PHP Data Objects) to ensure secure and efficient database operations.
 
 ### Security Considerations:
-- **Password Hashing:** Passwords are hashed using `password_hash` before storing in the database.
+- **Password Hashing:** Passwords are hashed using `password_hash` before storing it in the database.
 - **Session Management:** User sessions are managed securely to prevent unauthorized access.
 - **Input Validation:** User inputs are validated and sanitized to prevent SQL injection and other attacks.
 - **Error Handling:** Errors are logged, and appropriate messages are returned to the client.
@@ -12,9 +12,11 @@ The backend of the ZARWISE application is built using PHP and MySQL. It handles 
 
 ### 1. [`DBConnection.php`](DBConnection.php)
 - **Description:** Establishes a connection to the MySQL database using PDO.
-- **Details:** 
-  - Defines the DSN, username, and password for the database connection.
+- **Details:**
+  - Includes the configuration file to retrieve the DSN, username, and password.
+  - Creates a new PDO instance for database connection.
   - Sets the PDO error mode to exception for better error handling.
+  - Catches and handles any PDO exceptions that occur during the connection attempt.
 
 ### 2. [`config.php`](config.php)
 - **Description:** Contains the database configuration settings.

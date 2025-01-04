@@ -22,7 +22,7 @@ The ZARWISE frontend is a web application designed to help users manage their pe
   - The main dashboard page where users can view their expenses, set budgets, and see financial summaries. It includes charts and tables for data visualization.
   ![Dashboard Page](public/img/dashboard.png)
 
-- [prfoile page](./public/profile.php)
+- [profile page](./public/profile.php)
   - The profile page where users can update their username and password. It also includes an option to delete the account.
   ![Profile Page](public/img/profile-edit.png)
 

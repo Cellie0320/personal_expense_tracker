@@ -20,7 +20,7 @@ The backend of the ZARWISE application is built using PHP and MySQL. It handles 
 - **Description:** Contains the database configuration settings.
 - **Details:**
   - Defines the DSN, username, and password for the database connection.
-  > **Note:** This file needs to be created for the file link to work. Refer to the [README.md](../README.md#database-configuration) for more details.
+  > **Note:** This file needs to be created for the file link to work. Refer to the [Database Configuration](../README.md#database-configuration) for more details.
 
 ### 3. [`authenticate.php`](authenticate.php)
 - **Description:** Handles user authentication by verifying the provided username and password.

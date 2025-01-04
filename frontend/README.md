@@ -1,6 +1,6 @@
 
 # Frontend Overview
-The Personal Expense Tracker frontend is a web application designed to help users manage their personal finances by tracking expenses, setting budgets, and viewing financial summaries. The frontend is built using HTML, CSS, and JavaScript, and it interacts with a backend server to store and retrieve data.
+The ZARWISE frontend is a web application designed to help users manage their personal finances by tracking expenses, setting budgets, and viewing financial summaries. The frontend is built using HTML, CSS, and JavaScript, and it interacts with a backend server to store and retrieve data.
 
 ## File Descriptions
 

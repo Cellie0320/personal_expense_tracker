@@ -65,20 +65,7 @@ The SQL dump file [`expensetracker-db_sql.sql`](./expensetracker-db_sql.sql) con
 - Indexes and constraints for data integrity.
 
 ### How to Import the Database
-
-1. **Using phpMyAdmin:**
-   - Log in to phpMyAdmin.
-   - Select or create a database.
-   - Go to the "Import" tab.
-   - Choose the `expensetracker-db_sql.sql` file.
-   - Click "Go" to import the database.
-
-2. **Using MySQL Command Line:**
-   - Open your terminal or command prompt.
-   - Log in to MySQL: `mysql -u username -p`
-   - Create a new database: `CREATE DATABASE expensetracker;`
-   - Use the new database: `USE expensetracker;`
-   - Import the SQL file: `SOURCE /path/to/expensetracker-db_sql.sql;`
+Refer to the [Import MYSQL database](./README.md/#how-to-import-the-database) for more details on how to import the database.
 
 ## Additional Information
 

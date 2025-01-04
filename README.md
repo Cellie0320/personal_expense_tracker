@@ -6,26 +6,33 @@
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Prerequisites](#prerequisites)
-3. [Installation and Setup](#installation-and-setup)
+2. [Key Features](#key-features)
+3. [Prerequisites](#prerequisites)
+4. [Installation and Setup](#installation-and-setup)
     - [Install UniServer](#install-uniserver)
     - [Clone the Repository](#clone-the-repository)
     - [Import MySQL Database](#import-mysql-database)
       - [Troubleshooting phpMyAdmin Access](#troubleshooting-phpmyadmin-access)
-4. [Running the Project](#running-the-project)
-5. [Key Features](#key-features)
+5. [Running the Project](#running-the-project)
 6. [Conclusion](#conclusion)
 
 ## 1. Introduction
-This guide provides step-by-step instructions to set up and run the ZARWISE personal_expense tracker
-project using UniServer. It includes installing UniServer, cloning the repository, and importing the MySQL database.
+This guide provides step-by-step instructions to set up and run the ZARWISE project using UniServer. It includes installing UniServer, cloning the repository, and importing the MySQL database.
 
-## 2. Prerequisites
+## 2. Key Features
+- **User Authentication:** Secure login and registration with password hashing.
+- **Expense Management:** Add, edit, delete, and view expenses.
+- **Data Retrieval:** Fetch expenses, total expenses, and detailed expense information.
+- **Data Export:** Export expenses as a CSV file.
+- **Profile Management:** Update user profile information and delete user profile.
+- **Chart Data:** Retrieve data for generating expense charts.
+
+## 3. Prerequisites
 - A computer with Windows OS
 - Internet connection
 - Basic knowledge of PHP and MySQL
 
-## 3. Installation and Setup
+## 4. Installation and Setup
 
 ### Install UniServer
 1. **Download UniServer:**
@@ -43,7 +50,7 @@ project using UniServer. It includes installing UniServer, cloning the repositor
    - Navigate to the extracted UniServer directory and run `UniController.exe`.
    - Click on the "Start Apache" and "Start MySQL" buttons to start the web server and database server.
    - If prompted for a new MySQL password, choose an easy-to-remember secure password.
-   > **Note:** The MySQL password you set here will be used in the [DBConnection.php](backend/DBConnection.php) file to connect to the database. Ensure that the password matches in both places.
+   > **Note:** Ensure that the MySQL password set here matches the password specified in the `config.php` file for database connectivity.
 
 ### Clone the Repository
 1. **Install Git Bash (if not already installed):**
@@ -76,7 +83,7 @@ project using UniServer. It includes installing UniServer, cloning the repositor
 3. **Import the Database:**
    - Select the `expense_tracker` database from the left sidebar.
    - Click on the "Import" tab.
-   - Click "Choose File" and select the expensetracker-db_sql.sql file from the database directory of the cloned repository.
+   - Click "Choose File" and select the [SQL File](./database/expensetracker-db_sql.sql) file from the database directory of the cloned repository.
    - Click "Go" to import the database.
 
 #### Troubleshooting phpMyAdmin Access
@@ -91,11 +98,8 @@ project using UniServer. It includes installing UniServer, cloning the repositor
   $cfg['Servers'][$i]['AllowNoPassword'] = false;     // Must use password
   ```
 - To apply these changes, save and close the file then restart UniServer by stopping and then starting the Apache and MySQL servers.
-
-- **Note:** The username and password set in the `config.inc.php` file must also be used in the `config.php` file. Refer to the Database Configuration section for detailed instructions.
-
+> **Note:** The username and password set in the `config.inc.php` file must also be used in the `config.php` file.
 ### Database Configuration
-
 1. **Create the `config.php` file:**
    - In the backend directory, create a new file named `config.php`.
 
@@ -110,8 +114,9 @@ project using UniServer. It includes installing UniServer, cloning the repositor
    ```
 
 3. **Save the `config.php` file.**
+4. After creating and saving the `config.php` file, ensure that the database connection is correctly configured by verifying the [DB Connection](./backend/DBConnection.php) file.
 
-## 4. Running the Project
+## 5. Running the Project
 1. **Start UniServer:**
    - Run the `UniController.exe` file, then start Apache and MySQL.
 
@@ -123,17 +128,9 @@ project using UniServer. It includes installing UniServer, cloning the repositor
 3. **Login or Register:**
    - Use the index page to access your account or register a new ZARWISE account.
 
-## 5. Key Features
-- **User Authentication:** Secure login and registration with password hashing.
-- **Expense Management:** Add, edit, delete, and view expenses.
-- **Data Retrieval:** Fetch expenses, total expenses, and detailed expense information.
-- **Data Export:** Export expenses as a CSV file.
-- **Profile Management:** Update user profile information and delete user profile.
-- **Chart Data:** Retrieve data for generating expense charts.
-
-## 6. Conclusion
-You have successfully set up and run the Personal Expense Tracker project using UniServer.
-If you have any questions or need further assistance, you can contact the maintainer at [marceldelange20@gmail.com](mailto:marceldelange20@gmail.com).
+   ## 6. Conclusion and Support
+   You have successfully set up and run the Personal Expense Tracker project using UniServer.
+   If you have any questions or need further assistance, you can contact the maintainer at [marceldelange20@gmail.com](mailto:marceldelange20@gmail.com).
 
 ## License
-This project is licensed under the Apache License. See the [LICENSE](https://github.com/Cellie0320/personal_expense_tracker/blob/main/LICENSE.md) file for more details.
+This project is licensed under the Apache License. See the [LICENSE](LICENSE.md) file for more details.

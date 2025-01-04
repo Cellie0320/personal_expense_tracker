@@ -1,6 +1,6 @@
 ## Backend Overview
 
-The backend of the Personal Expense Tracker application is built using PHP and MySQL. It handles user authentication, expense management, and data retrieval for various functionalities. The backend interacts with the database through PDO (PHP Data Objects) to ensure secure and efficient database operations.
+The backend of the ZARWISE application is built using PHP and MySQL. It handles user authentication, expense management, and data retrieval for various functionalities. The backend interacts with the database through PDO (PHP Data Objects) to ensure secure and efficient database operations.
 
 ### Security Considerations:
 - **Password Hashing:** Passwords are hashed using `password_hash` before storing in the database.
@@ -20,6 +20,7 @@ The backend of the Personal Expense Tracker application is built using PHP and M
 - **Description:** Contains the database configuration settings.
 - **Details:**
   - Defines the DSN, username, and password for the database connection.
+  > **Note:** This file needs to be created for the file link to work. Refer to the [README.md](../README.md#database-configuration) for more details.
 
 ### 3. [`authenticate.php`](authenticate.php)
 - **Description:** Handles user authentication by verifying the provided username and password.

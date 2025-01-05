@@ -126,5 +126,5 @@ The backend of the ZARWISE application is built using PHP and MySQL. It handles 
   - Deletes the user profile from the database.
   - Destroys the session and redirects to the index page.
 
-## Contributing
-For any questions or issues, please contact the development team at [marceldelange20@gmail.com](mailto:marceldelange20@gmail.com)
+## Contact and Support
+For contact and support refer to the [Support Section](../README.md#6-conclusion-and-support) for more details

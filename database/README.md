@@ -73,5 +73,5 @@ Refer to the [Import MYSQL database](../README.md/#import-mysql-database) for mo
 - The character set is `utf8mb4` and the collation is `utf8mb4_0900_ai_ci`.
 - The database is designed to support multiple users, each with their own categories and expenses.
 
-## Contributing
-For any questions or issues, please contact the development team at [marceldelange20@gmail.com](mailto:marceldelange20@gmail.com)
+## Contact and Support
+For contact and support refer to the [Support Section](../README.md#6-conclusion-and-support) for more details

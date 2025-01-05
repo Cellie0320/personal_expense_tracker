@@ -69,5 +69,5 @@ The ZARWISE frontend is a web application designed to help users manage their pe
 - [ajax.js](./public/ajax.js)
   - The JavaScript file for handling AJAX requests. It includes functions to load expenses, handle form submissions, and show feedback messages using toasts.
 
-## Contributing
-For any questions or issues, please contact the development team at [marceldelange20@gmail.com](mailto:marceldelange20@gmail.com)
+## Contact and Support
+For contact and support refer to the [Support Section](../README.md#6-conclusion-and-support) for more details

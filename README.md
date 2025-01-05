@@ -1,4 +1,5 @@
 <p align="center">
+<p align="center">
 <img src="frontend/public/img/logo.png" alt="ZARWISE Banner" width="100%" height="auto">
 </p>
 
@@ -112,6 +113,7 @@ This guide provides step-by-step instructions to set up and run the ZARWISE pers
        'username' => 'root',
        'password' => 'your_password',
    ];
+   ?>
    ```
    4. After creating and saving the `config.php` file, verify the database connection by ensuring that the [DBConnection.php](./backend/DBConnection.php) file is correctly configured.
 
@@ -144,4 +146,10 @@ This project is licensed under the Apache License. See the [LICENSE](LICENSE.md)
 
 ## Acknowledgements
 - [dbdiagram.io](https://dbdiagram.io) - For database diagramming.
-- [UniServer Setup YouTube Tutorial](https://youtu.be/OP2Jrda6yIY?si=oNo9NkaMTKFhMVvq) - For guidance and tutorial on UniServer
+- [UniServer Setup YouTube Tutorial](https://youtu.be/OP2Jrda6yIY?si=oNo9NkaMTKFhMVvq) - For guidance to setup and install UniServer
+
+## Future Improvements
+> **Note:** In-app mail functionality is in development and will be implemented once it is fully developed and tested. This will be applicable to the contact form and suggest a feature form.
+
+We encourage fellow developers to assist with the development and suggest more features. Feel free to fork the repository, make improvements, and submit pull requests.
+

@@ -88,7 +88,7 @@ This guide provides step-by-step instructions to set up and run the ZARWISE proj
 
 #### Troubleshooting phpMyAdmin Access
 - If you encounter an error when opening phpMyAdmin, search the UniServer directory for a file named `config.inc.php`.
-- Use VSCode or another text editor to open it.
+- Use VSCode or another code editor to open it.
 - Under the authentication section, set your username and password:
   ```php
   /* Authentication section */

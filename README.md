@@ -73,7 +73,7 @@ This guide provides step-by-step instructions to set up and run the ZARWISE pers
 ### Import MySQL Database
 1. **Open phpMyAdmin:**
    - Run the `UniController.exe` file, then start Apache and MySQL.
-   - Open your web browser and go to the UniServer test page (`http://localhost`).
+   - Your default browser will automatically open and navigate to the UniServer test page (`http://localhost`).
    - Click on the "phpMyAdmin" link on the UniServer test page.
 
 2. **Create a New Database:**

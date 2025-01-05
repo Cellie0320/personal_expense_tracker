@@ -5,34 +5,29 @@
 # ZARWISE Setup Guide 
 
 ## Table of Contents
-1. [Introduction](#introduction)
-2. [Key Features](#key-features)
-3. [Prerequisites](#prerequisites)
-4. [Installation and Setup](#installation-and-setup)
+1. [Prerequisites](#prerequisites)
+2. [Introduction](#introduction)
+3. [Installation and Setup](#installation-and-setup)
     - [Install UniServer](#install-uniserver)
     - [Clone the Repository](#clone-the-repository)
     - [Import MySQL Database](#import-mysql-database)
       - [Troubleshooting phpMyAdmin Access](#troubleshooting-phpmyadmin-access)
-5. [Running the Project](#running-the-project)
+4. [Running the Project](#running-the-project)
+5. [Key Features](#key-features)
 6. [Conclusion](#conclusion)
 
-## 1. Introduction
-This guide provides step-by-step instructions to set up and run the ZARWISE project using UniServer. It includes installing UniServer, cloning the repository, and importing the MySQL database.
-
-## 2. Key Features
-- **User Authentication:** Secure login and registration with password hashing.
-- **Expense Management:** Add, edit, delete, and view expenses.
-- **Data Retrieval:** Fetch expenses, total expenses, and detailed expense information.
-- **Data Export:** Export expenses as a CSV file.
-- **Profile Management:** Update user profile information and delete user profile.
-- **Chart Data:** Retrieve data for generating expense charts.
-
-## 3. Prerequisites
+## 1. Prerequisites
+## 1. Prerequisites
 - A computer with Windows OS
 - Internet connection
-- Basic knowledge of PHP and MySQL
+- [Visual Studio Code (VS Code)](https://code.visualstudio.com/download) (if not already installed)
+- [Git Bash](https://gitforwindows.org/)
 
-## 4. Installation and Setup
+## 2. Introduction
+This guide provides step-by-step instructions to set up and run the ZARWISE personal_expense tracker
+project using UniServer. It includes installing UniServer, cloning the repository, and importing the MySQL database.
+
+## 3. Installation and Setup
 
 ### Install UniServer
 1. **Download UniServer:**
@@ -50,7 +45,7 @@ This guide provides step-by-step instructions to set up and run the ZARWISE proj
    - Navigate to the extracted UniServer directory and run `UniController.exe`.
    - Click on the "Start Apache" and "Start MySQL" buttons to start the web server and database server.
    - If prompted for a new MySQL password, choose an easy-to-remember secure password.
-   > **Note:** Ensure that the MySQL password set here matches the password specified in the `config.php` file for database connectivity. Refer to the [Database Configuration](#database-configuration) for more details on how to create and add content to the file
+   > **Note:** The MySQL password you set here will be used in the [DBConnection.php](backend/DBConnection.php) file to connect to the database. Ensure that the password matches in both places.
 
 ### Clone the Repository
 1. **Install Git Bash (if not already installed):**
@@ -70,11 +65,17 @@ This guide provides step-by-step instructions to set up and run the ZARWISE proj
      git clone https://github.com/Cellie0320/personal_expense_tracker
      ```
 
+5. **Restart Apache and MySQL Servers:**
+   - After cloning the repository, restart the Apache and MySQL servers using the UniController:
+     - Open the `UniController.exe` file.
+     - Click on the "Stop Apache" and "Stop MySQL" buttons.
+     - Then click on the "Start Apache" and "Start MySQL" buttons to restart the servers.
+
 ### Import MySQL Database
 1. **Open phpMyAdmin:**
    - Run the `UniController.exe` file, then start Apache and MySQL.
-   - Your default web browser will open, navigate to the UniServer test page (`http://localhost`).
-      - On the UniServer test page, click the "phpMyAdmin" link.
+   - Open your web browser and go to the UniServer test page (`http://localhost`).
+   - Click on the "phpMyAdmin" link on the UniServer test page.
 
 2. **Create a New Database:**
    - In phpMyAdmin, click on the "Databases" tab.
@@ -83,7 +84,7 @@ This guide provides step-by-step instructions to set up and run the ZARWISE proj
 3. **Import the Database:**
    - Select the `expense_tracker` database from the left sidebar.
    - Click on the "Import" tab.
-   - Click "Choose File" and select the [expensetracker-db_sql.sql](./database/expensetracker-db_sql.sql) file from the database directory of the cloned repository.
+   - Click "Choose File" and select the expensetracker-db_sql.sql file from the database directory of the cloned repository.
    - Click "Go" to import the database.
 
 #### Troubleshooting phpMyAdmin Access
@@ -98,6 +99,7 @@ This guide provides step-by-step instructions to set up and run the ZARWISE proj
   $cfg['Servers'][$i]['AllowNoPassword'] = false;     // Must use password
   ```
 - To apply these changes, save and close the file then restart UniServer by stopping and then starting the Apache and MySQL servers.
+- Alternatively, you can just close the phpMyAdmin browser tab and open it again via the test page link if the error is not password related.
 > **Note:** The username and password set in the `config.inc.php` file must also be used in the `config.php` file.
 ### Database Configuration
 1. **Create the `config.php` file:**
@@ -114,6 +116,12 @@ This guide provides step-by-step instructions to set up and run the ZARWISE proj
    ```
    4. After creating and saving the `config.php` file, verify the database connection by ensuring that the [DBConnection.php](./backend/DBConnection.php) file is correctly configured.
 
+   5. **Restart UniServer:**
+      - Open `UniController.exe`.
+      - Click "Stop Apache" and "Stop MySQL".
+      - Then click "Start Apache" and "Start MySQL" to restart the servers.
+      > **Note:** This step ensures that the newly created file is properly stored on the server.
+
 ## 5. Running the Project
 1. **Start UniServer:**
    - Run the `UniController.exe` file, then start Apache and MySQL.
@@ -125,6 +133,8 @@ This guide provides step-by-step instructions to set up and run the ZARWISE proj
 
 3. **Login or Register:**
    - Use the index page to access your account or register a new ZARWISE account.
+   - If you are a new user, just click on the "View Expenses" to start adding expenses to your account.
+
 
    ## 6. Conclusion and Support
    You have successfully set up and run the ZARWISE project using UniServer.

@@ -64,7 +64,7 @@ h1 {
 form {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 5px; /* Reduced gap between form fields */
+    gap: 5px; 
     background: transparent;
     padding: 20px;
     border-radius: 5px;

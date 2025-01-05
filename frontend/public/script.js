@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Please specify the category.');
         }
     });
-
+    //(Vertical Stats Section)
     // Fetch total expenses
     function fetchTotalExpenses() {
         $.ajax({

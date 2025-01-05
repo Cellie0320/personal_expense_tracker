@@ -261,7 +261,7 @@ $currentYear = date("Y"); // Get the current year
           </button>
         </div>
         <div class="toast-body" id="toast-body">
-          <!-- Feedback message will be injected here -->
+          <!-- Feedback message will be added here -->
         </div>
       </div>
     </div>
@@ -277,7 +277,7 @@ $currentYear = date("Y"); // Get the current year
             </button>
           </div>
           <div class="modal-body">
-            <!-- Expense details will be dynamically loaded here -->
+            <!-- Expense details will be loaded here -->
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

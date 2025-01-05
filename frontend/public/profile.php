@@ -43,7 +43,7 @@ unset($_SESSION['redirect']);
 <body>
     <div class="container">
         <h1>Edit Profile</h1>
-        <!-- Display message if it exists -->
+        <!-- Display notification message -->
         <?php if ($message) { ?>
             <script>
                 document.addEventListener('DOMContentLoaded', function () {

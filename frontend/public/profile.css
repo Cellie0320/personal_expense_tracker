@@ -35,7 +35,7 @@ body {
 .container h1 {
   margin-bottom: 20px;
   font-size: 1.8rem;
-  color: white; /* White heading */
+  color: white;
 }
 
 /* Form Styling */
@@ -49,7 +49,7 @@ form {
 label {
   font-size: 1.1rem;
   text-align: left;
-  color: white; /* White form labels */
+  color: white;
 }
 
 input[type="text"],
@@ -67,7 +67,7 @@ input[type="password"] {
 }
 
 .password-container input[type="password"] {
-  padding-right: 40px; /* Add padding to make space for the eye icon */
+  padding-right: 40px;
 }
 
 .password-container .fa-eye,
@@ -84,7 +84,7 @@ button {
   padding: 10px 20px;
   font-size: 1rem;
   color: white;
-  background-color: black; /* Black background color */
+  background-color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -92,16 +92,16 @@ button {
 }
 
 button:hover {
-  background-color: darkred; /* Dark red on hover */
+  background-color: darkred;
 }
 
 /* Delete Button Styling */
 .delete-btn {
-  background-color: red; /* Red background color */
+  background-color: red;
 }
 
 .delete-btn:hover {
-  background-color: darkred; /* Dark red on hover */
+  background-color: darkred;
 }
 
 a {

@@ -36,8 +36,8 @@ $username = htmlspecialchars($_SESSION['username']);
             
             <!-- Email field -->
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <span id="emailMessage"></span> <!-- Span for displaying email validation messages -->
+            <input type="email" id="email" name="email" required oninput="validateEmail()">
+            <span id="emailMessage"></span> <!-- Message to display the email validation message -->
             
             <!-- Query field -->
             <label for="query">Your Query:</label>

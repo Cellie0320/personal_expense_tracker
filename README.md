@@ -17,9 +17,9 @@
 6. [Conclusion](#conclusion)
 
 ## 1. Prerequisites
-- A Windows computer
-- Internet connection
-- [Visual Studio Code (VS Code)](https://code.visualstudio.com/download)
+- A Windows 10 Computer
+- Stable Internet connection
+- [Visual Studio Code (VS Code)(if not already installed)](https://code.visualstudio.com/download)
 - [Git Bash](https://gitforwindows.org/)
 
 ## 2. Introduction

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="frontend/public/img/logo.png" alt="ZARWISE Banner" width="100%" height="auto">
+<img src="frontend/public/img/logo.png" alt="ZARWISE Banner" width="100%" height="auto">
 </p>
 
 # ZARWISE Setup Guide 
@@ -8,30 +8,28 @@
 1. [Prerequisites](#prerequisites)
 2. [Introduction](#introduction)
 3. [Installation and Setup](#installation-and-setup)
-    - [Install UniServer](#install-uniserver)
-    - [Clone the Repository](#clone-the-repository)
-    - [Import MySQL Database](#import-mysql-database)
-      - [Troubleshooting phpMyAdmin Access](#troubleshooting-phpmyadmin-access)
+   - [Install UniServer](#install-uniserver)
+   - [Clone the Repository](#clone-the-repository)
+   - [Import MySQL Database](#import-mysql-database)
+     - [Troubleshooting phpMyAdmin Access](#troubleshooting-phpmyadmin-access)
 4. [Running the Project](#running-the-project)
 5. [Key Features](#key-features)
 6. [Conclusion](#conclusion)
 
 ## 1. Prerequisites
-## 1. Prerequisites
-- A computer with Windows OS
+- A Windows computer
 - Internet connection
-- [Visual Studio Code (VS Code)](https://code.visualstudio.com/download) (if not already installed)
+- [Visual Studio Code (VS Code)](https://code.visualstudio.com/download)
 - [Git Bash](https://gitforwindows.org/)
 
 ## 2. Introduction
-This guide provides step-by-step instructions to set up and run the ZARWISE personal_expense tracker
-project using UniServer. It includes installing UniServer, cloning the repository, and importing the MySQL database.
+This guide provides step-by-step instructions to set up and run the ZARWISE personal expense tracker project using UniServer. It covers installing UniServer, cloning the repository, and importing the MySQL database.
 
 ## 3. Installation and Setup
 
 ### Install UniServer
 1. **Download UniServer:**
-   - Visit the [UniServer website](https://www.uniformserver.com/) and download the latest version of UniServer.
+   - Visit the [UniServer website](https://www.uniformserver.com/) and download the latest version.
 
 2. **Move UniServer:**
    - Move the downloaded UniServer EXE file to a directory of your choice (e.g., `C:\server`).
@@ -61,15 +59,15 @@ project using UniServer. It includes installing UniServer, cloning the repositor
 4. **Clone the Repository:**
    - Right-click inside the `www` directory and select "Open Git Bash Here".
    - Run the following command to clone the repository:
-     ```sh
-     git clone https://github.com/Cellie0320/personal_expense_tracker
-     ```
+    ```sh
+    git clone https://github.com/Cellie0320/personal_expense_tracker
+    ```
 
 5. **Restart Apache and MySQL Servers:**
    - After cloning the repository, restart the Apache and MySQL servers using the UniController:
-     - Open the `UniController.exe` file.
-     - Click on the "Stop Apache" and "Stop MySQL" buttons.
-     - Then click on the "Start Apache" and "Start MySQL" buttons to restart the servers.
+    - Open the `UniController.exe` file.
+    - Click on the "Stop Apache" and "Stop MySQL" buttons.
+    - Then click on the "Start Apache" and "Start MySQL" buttons to restart the servers.
 
 ### Import MySQL Database
 1. **Open phpMyAdmin:**
@@ -101,6 +99,7 @@ project using UniServer. It includes installing UniServer, cloning the repositor
 - To apply these changes, save and close the file then restart UniServer by stopping and then starting the Apache and MySQL servers.
 - Alternatively, you can just close the phpMyAdmin browser tab and open it again via the test page link if the error is not password related.
 > **Note:** The username and password set in the `config.inc.php` file must also be used in the `config.php` file.
+
 ### Database Configuration
 1. **Create the `config.php` file:**
    - In the backend directory, create a new file named `config.php`.
@@ -142,3 +141,7 @@ project using UniServer. It includes installing UniServer, cloning the repositor
 
 ## License
 This project is licensed under the Apache License. See the [LICENSE](LICENSE.md) file for more details.
+
+## Acknowledgements
+- [dbdiagram.io](https://dbdiagram.io) - For database diagramming.
+- [UniServer Setup YouTube Tutorial](https://youtu.be/OP2Jrda6yIY?si=oNo9NkaMTKFhMVvq) - For guidance and tutorial on UniServer

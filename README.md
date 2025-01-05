@@ -125,7 +125,7 @@ This guide provides step-by-step instructions to set up and run the ZARWISE pers
 
 ## 5. Running the Project
 1. **Start UniServer:**
-   - Run the `UniController.exe` file, then start Apache and MySQL.
+   - Run the `UniController.exe` file, then start Apache and MySQL. (If it's not already started)
 
 2. **Access the Project:**
    - After starting Apache and MySQL, the UniServer test page will appear (`http://localhost`).

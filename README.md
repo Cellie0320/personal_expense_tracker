@@ -44,7 +44,7 @@ This guide provides step-by-step instructions to set up and run the ZARWISE pers
    - Navigate to the extracted UniServer directory and run `UniController.exe`.
    - Click on the "Start Apache" and "Start MySQL" buttons to start the web server and database server.
    - If prompted for a new MySQL password, choose an easy-to-remember secure password.
-   > **Note:** The MySQL password you set here will be used in the [DBConnection.php](backend/DBConnection.php) file to connect to the database. Ensure that the password matches in both places.
+   > **Note:** Ensure that the MySQL password you set here is consistent with the password specified in the `config.php` file for database connectivity. For detailed instructions, refer to the [Database Configuration](#database-configuration) section.
 
 ### Clone the Repository
 1. **Install Git Bash (if not already installed):**

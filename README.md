@@ -169,7 +169,7 @@ You have successfully set up and run the ZARWISE project using UniServer.
 If you have any questions or need further assistance, you can contact the maintainer at [marceldelange20@gmail.com](mailto:marceldelange20@gmail.com).
 
 ## License
-This project is licensed under the Apache License. See the LICENSE file for more details.
+This project is licensed under the Apache License. See the [License](LICENSE.md)file for more details.
 
 ## Acknowledgements
 - [dbdiagram.io](https://dbdiagram.io) - For database diagramming.

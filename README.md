@@ -1,21 +1,23 @@
 <p align="center">
-<p align="center">
 <img src="frontend/public/img/logo.png" alt="ZARWISE Banner" width="100%" height="auto">
 </p>
 
 # ZARWISE Setup Guide 
 
 ## Table of Contents
-1. [Prerequisites](#prerequisites)
-2. [Introduction](#introduction)
-3. [Installation and Setup](#installation-and-setup)
+1. [Prerequisites](#1-prerequisites)
+2. [Key Features](#2-key-features)
+3. [Introduction](#3-introduction)
+4. [Installation and Setup](#4-installation-and-setup)
    - [Install UniServer](#install-uniserver)
    - [Clone the Repository](#clone-the-repository)
    - [Import MySQL Database](#import-mysql-database)
      - [Troubleshooting phpMyAdmin Access](#troubleshooting-phpmyadmin-access)
-4. [Running the Project](#running-the-project)
-5. [Key Features](#key-features)
-6. [Conclusion](#conclusion)
+5. [Running the Project](#5-running-the-project)
+6. [Conclusion and Support](#6-conclusion-and-support)
+7. [License](#license)
+8. [Acknowledgements](#acknowledgements)
+9. [Future Improvements](#future-improvements)
 
 ## 1. Prerequisites
 - A Windows 10 (or 11) Computer
@@ -23,10 +25,36 @@
 - [Visual Studio Code (VS Code)(if not already installed)](https://code.visualstudio.com/download)
 - [Git Bash](https://gitforwindows.org/)
 
-## 2. Introduction
+## 2. Key Features
+- **User Authentication:**
+  - Secure user registration and login with password hashing.
+  - Session management to ensure secure access to user data.
+
+- **Expense Management:**
+  - Add, edit, and delete expenses with detailed descriptions.
+  - Categorize expenses for better organization.
+  - View expenses in a tabular format with sorting and filtering options.
+
+- **Financial Summaries:**
+  - Visualize expenses through interactive charts.
+  - View total expenses, budget, and savings.
+  - Filter expenses by daily, weekly, monthly, and yearly views.
+
+- **Data Export:**
+  - Export expenses to a CSV file for offline analysis.
+
+- **Profile Management:**
+  - Update username and password.
+  - Delete user profile and associated data.
+
+- **Contact and Feedback:**
+  - Contact form for user queries and feedback.
+  - Suggest a feature form to gather user suggestions for future improvements.
+
+## 3. Introduction
 This guide provides step-by-step instructions to set up and run the ZARWISE personal expense tracker project using UniServer. It covers installing UniServer, cloning the repository, and importing the MySQL database.
 
-## 3. Installation and Setup
+## 4. Installation and Setup
 
 ### Install UniServer
 1. **Download UniServer:**
@@ -105,7 +133,7 @@ This guide provides step-by-step instructions to set up and run the ZARWISE pers
 1. **Create the `config.php` file:**
    - In the backend directory, create a new file named `config.php`.
 
-2. **Update the `config.php` file with the following content, ensuring that the database connection settings reflect your credentials. Use 'root' as the username for now, and set the password according to your database configuration or the password specified in the `config.inc.php` file. For further details, refer to the [Troubleshooting phpMyAdmin Access](#troubleshooting-phpmyadmin-access) section for instructions on setting a custom password:**
+2. **Update the `config.php` file with the following content, ensuring that the database connection settings reflect your credentials. Use 'root' as the username for now, and set the password according to your database configuration or the password specified in the `config.inc.php` file. For further details, refer to the Troubleshooting phpMyAdmin Access section for instructions on setting a custom password:**
    ```php
    <?php
    return [
@@ -115,7 +143,7 @@ This guide provides step-by-step instructions to set up and run the ZARWISE pers
    ];
    ?>
    ```
-   4. After creating and saving the `config.php` file, verify the database connection by ensuring that the [DBConnection.php](./backend/DBConnection.php) file is correctly configured.
+   4. After creating and saving the `config.php` file, verify the database connection by ensuring that the DBConnection.php file is correctly configured.
 
    5. **Restart UniServer:**
       - Open `UniController.exe`.
@@ -136,13 +164,12 @@ This guide provides step-by-step instructions to set up and run the ZARWISE pers
    - Use the index page to access your account or register a new ZARWISE account.
    - If you are a new user, just click on the "View Expenses" to start adding expenses to your account.
 
-
-   ## 6. Conclusion and Support
-   You have successfully set up and run the ZARWISE project using UniServer.
-   If you have any questions or need further assistance, you can contact the maintainer at [marceldelange20@gmail.com](mailto:marceldelange20@gmail.com).
+## 6. Conclusion and Support
+You have successfully set up and run the ZARWISE project using UniServer.
+If you have any questions or need further assistance, you can contact the maintainer at [marceldelange20@gmail.com](mailto:marceldelange20@gmail.com).
 
 ## License
-This project is licensed under the Apache License. See the [LICENSE](LICENSE.md) file for more details.
+This project is licensed under the Apache License. See the LICENSE file for more details.
 
 ## Acknowledgements
 - [dbdiagram.io](https://dbdiagram.io) - For database diagramming.
@@ -152,4 +179,3 @@ This project is licensed under the Apache License. See the [LICENSE](LICENSE.md)
 > **Note:** In-app mail functionality is in development and will be implemented once it is fully developed and tested. This will be applicable to the contact form and suggest a feature form.
 
 We encourage fellow developers to assist with the development and suggest more features. Feel free to fork the repository, make improvements, and submit pull requests.
-

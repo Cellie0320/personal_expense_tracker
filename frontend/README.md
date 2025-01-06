@@ -28,7 +28,7 @@ The ZARWISE frontend is a web application designed to help users manage their pe
 
 - [forgot password page](./public/forgot_password.php)
   - The page where users can reset their password if they have forgotten it. It includes form validation for the new password.
-  [Password-Reset](public/img/reset-password.png)
+  ![Password-Reset](public/img/reset-password.png)
 
 -[suggest-a-feature-page](./public/suggestfeature.php)
   - The page where users can suggest new features for the application. It includes a form to submit suggestions via email.

@@ -58,22 +58,28 @@ document.addEventListener('DOMContentLoaded', function () {
             method: "GET",
             dataType: 'json', // Ensure the response is parsed as JSON
             success: function (response) {
-                console.log("Fetch Expenses Response:", response); // Debugging line
-                if (response.error) {
-                    console.error(response.error);
-                    return;
+                console.log("Raw Fetch Expenses Response:", response); // Log the raw response
+                try {
+                    const jsonResponse = JSON.parse(response);
+                    console.log("Parsed Fetch Expenses Response:", jsonResponse); // Debugging line
+                    if (jsonResponse.error) {
+                        console.error(jsonResponse.error);
+                        return;
+                    }
+            
+                    const labels = jsonResponse.labels;
+                    const values = jsonResponse.values;
+            
+                    console.log("Labels:", labels); // Debugging line
+                    console.log("Values:", values); // Debugging line
+            
+                    // Update chart data
+                    expenseChart.data.labels = labels;
+                    expenseChart.data.datasets[0].data = values;
+                    expenseChart.update();
+                } catch (e) {
+                    console.error("Failed to parse JSON:", e);
                 }
-
-                const labels = response.labels;
-                const values = response.values;
-
-                console.log("Labels:", labels); // Debugging line
-                console.log("Values:", values); // Debugging line
-
-                // Update chart data
-                expenseChart.data.labels = labels;
-                expenseChart.data.datasets[0].data = values;
-                expenseChart.update();
             },
             error: function (xhr, status, error) {
                 console.error("Failed to load chart data:", error);

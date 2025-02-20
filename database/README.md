@@ -65,6 +65,7 @@ The SQL dump file [`expensetracker-db_sql.sql`](./expensetracker-db_sql.sql) con
 - Indexes and constraints for data integrity.
 
 ### How to Import the Database
+
 Refer to the [Import MYSQL database](../README.md/#import-mysql-database) for more details on how to import the database.
 
 ## Additional Information
@@ -74,4 +75,5 @@ Refer to the [Import MYSQL database](../README.md/#import-mysql-database) for mo
 - The database is designed to support multiple users, each with their own categories and expenses.
 
 ## Contact and Support
-For contact and support refer to the [Support Section](../README.md#6-conclusion-and-support) for more details
+
+For contact and support refer to the [Support Section](../README.md#6-conclusion-and-support) for more details.

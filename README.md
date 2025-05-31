@@ -1,4 +1,4 @@
-<p align="center">
+up<p align="center">
 <img src="frontend/public/img/logo.png" alt="ZARWISE Banner" width="100%" height="auto">
 </p>
 
@@ -178,4 +178,5 @@ This project is licensed under the Apache License. See the [License](LICENSE.md)
 ## Future Improvements
 > **Note:** In-app mail functionality is in development and will be implemented once it is fully developed and tested. This will be applicable to the contact form and suggest a feature form.
 
-We encourage fellow developers to assist with the development and suggest more features. Feel free to fork the repository, make improvements, and submit pull requests.
+
+I encourage my fellow developers to assist with the development and suggest more features. Feel free to fork the repository, make improvements, and submit pull requests.

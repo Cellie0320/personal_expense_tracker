@@ -1,4 +1,4 @@
-up<p align="center">
+<p align="center">
 <img src="frontend/public/img/logo.png" alt="ZARWISE Banner" width="100%" height="auto">
 </p>
 
